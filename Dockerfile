@@ -4,11 +4,11 @@
 # Final image runs the standalone server on port 3000 as a non-root user.
 
 # ---- deps ----
-FROM node:22-alpine AS deps
+FROM node:26-alpine AS deps
 WORKDIR /app
 
 # Enable pnpm via corepack (matches package.json packageManager pin).
-RUN corepack enable && corepack prepare pnpm@10.33.2 --activate
+RUN corepack enable && corepack prepare pnpm@11.0.9 --activate
 
 # Railway's Metal builder validates cache-mount ids statically and requires
 # the literal "s/<service-id>-" prefix (no variable expansion). The id below
@@ -19,19 +19,28 @@ RUN --mount=type=cache,id=s/b8dfb466-bf66-40f5-9a09-ec7bee016855-pnpm,target=/ro
     pnpm install --frozen-lockfile
 
 # ---- builder ----
-FROM node:22-alpine AS builder
+FROM node:26-alpine AS builder
 WORKDIR /app
-RUN corepack enable && corepack prepare pnpm@10.33.2 --activate
+RUN corepack enable && corepack prepare pnpm@11.0.9 --activate
 
 ENV NEXT_TELEMETRY_DISABLED=1
 
 COPY --from=deps /app/node_modules ./node_modules
-COPY . .
+
+# Source comes from an npm-pack tarball produced before `docker build`
+# (run `pnpm pack` or `npm pack` in the repo root). .npmignore filters
+# dev-only files. The tarball wraps contents in a `package/` dir, which
+# --strip-components=1 removes. pnpm-lock.yaml is hard-excluded by
+# npm-packlist and is not needed here — `pnpm build` uses node_modules
+# from the deps stage, not the lockfile.
+COPY dnh-website-*.tgz ./
+RUN tar -xzf dnh-website-*.tgz --strip-components=1 \
+ && rm dnh-website-*.tgz
 
 RUN pnpm build
 
 # ---- runner ----
-FROM node:22-alpine AS runner
+FROM node:26-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
