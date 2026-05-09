@@ -80,13 +80,17 @@ describe("content shape", () => {
   });
 
   it("blood-bank dept entry exists and uses richPageHref", () => {
-    const entry = departments.find((d) => d.slug === "blood-bank");
+    // Widen the `as const` literal-narrowed array to the schema type so the
+    // optional `richPageHref` property is visible across all union members.
+    const all: readonly Department[] = departments;
+    const entry = all.find((d) => d.slug === "blood-bank");
     expect(entry).toBeDefined();
     expect(entry?.richPageHref).toBe("/en/blood-bank");
   });
 
   it("every richPageHref is locale-prefixed (en|hi)", () => {
-    for (const d of departments) {
+    const all: readonly Department[] = departments;
+    for (const d of all) {
       if (d.richPageHref) {
         expect(d.richPageHref).toMatch(/^\/(?:en|hi)\//);
       }
