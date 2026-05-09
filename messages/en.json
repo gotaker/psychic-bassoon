@@ -138,6 +138,8 @@
       "body": "Advanced endoscopic surgery (hystero-laparoscopy), high-precision ultrasonography, and prompt hormonal assessment under one roof — alongside a busy IUI and IVF service. Trained by Dr. Vimlesh Sharma · MS, FICS, ICMCH, IFUMB · UK-certified IVF course. Certificates issued by FOGSI.",
       "cta": "Enquire — devnandiniivf@gmail.com",
       "ctaHref": "mailto:devnandiniivf@gmail.com",
+      "applyCta": "Apply here",
+      "curriculumCta": "Curriculum",
       "courses": {
         "basic": {
           "value": "07",
@@ -164,6 +166,47 @@
     "locations": {
       "kicker": "LOCATIONS",
       "title": "Three buildings, one institution."
+    }
+  },
+  "training": {
+    "back": "← Back to home",
+    "shared": {
+      "lectures": "Lectures",
+      "liveTraining": "Live training",
+      "day": "Day {n}"
+    },
+    "apply": {
+      "kicker": "FOGSI · APPLICATIONS",
+      "title": "Apply for FOGSI infertility training.",
+      "lede": "Three FOGSI-recognised tracks run at Dev Nandini under Dr. Vimlesh Sharma. Applications go through FOGSI's standard form — instructions and the official PDF are below.",
+      "eligibilityKicker": "ELIGIBILITY",
+      "eligibility": "Open to FOGSI members holding a degree and diploma in Obstetrics & Gynaecology from MCI-recognised universities.",
+      "feesKicker": "COURSE FEES",
+      "feesNote": "Fees are paid by Demand Draft or Banker's Cheque payable at Mumbai in favour of FOGSI. FOGSI Travelling Fellowship awardees receive two weeks of training free for their fellowship year.",
+      "feeUnit": "Rs.",
+      "processKicker": "HOW TO APPLY",
+      "process": {
+        "step1": "Download the FOGSI application form below and complete it in the standard format prepared by FOGSI.",
+        "step2": "Attach photos of your centre and a note on your preferred training months.",
+        "step3": "Send the completed form along with the Demand Draft to the FOGSI Office at the address printed on the form.",
+        "step4": "A completion certificate is issued by FOGSI after successful completion of the course."
+      },
+      "downloadCta": "Download FOGSI application form (PDF)",
+      "syllabusCta": "View course curriculum",
+      "enquireKicker": "ENQUIRE",
+      "enquireBody": "For questions about scheduling, accommodation in Hapur, or pre-application guidance, write to Dr. Vimlesh Sharma's training office.",
+      "enquireCta": "Email — {email}",
+      "disclaimerKicker": "DISCLAIMER",
+      "disclaimer": "Training described here is not a substitute for formal medical training or certification. FOGSI is not responsible for legal credentialing or training in any procedure or technique, and curricula may change subject to available resources and participant needs."
+    },
+    "curriculum": {
+      "kicker": "FOGSI · CURRICULUM",
+      "title": "FOGSI infertility training syllabus.",
+      "lede": "Day-by-day breakdown of the three FOGSI-recognised tracks taught at Dev Nandini. Each day combines lectures with live training in our IVF lab and OPD.",
+      "downloadCta": "Download official FOGSI syllabus (PDF)",
+      "applyCta": "Apply for this training",
+      "courseFee": "Fee · Rs. {amount}",
+      "summarySectionTitle": "What this course covers"
     }
   }
 }

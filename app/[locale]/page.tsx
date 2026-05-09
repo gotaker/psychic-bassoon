@@ -66,7 +66,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: L
         <AccreditationsMarquee />
         <VisitPanel locale={locale} />
         <PhotoStrip />
-        <TrainingCentreSplit />
+        <TrainingCentreSplit locale={locale} />
         <NewsGrid locale={locale} />
         <StatsBand locale={locale} />
         <LocationsBand locale={locale} />
