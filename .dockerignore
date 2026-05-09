@@ -29,6 +29,12 @@ playwright-report
 test-results
 playwright/.cache
 tests
+vitest.config.ts
 *.log
 *.tsbuildinfo
 next-env.d.ts
+Dockerfile
+.dockerignore
+.prettierrc
+.prettierignore
+*.tgz
