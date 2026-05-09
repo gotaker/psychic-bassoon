@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import type { Department, DepartmentDetail, Doctor } from "@/content/types";
 import { EditorialSplit } from "@/components/layout/EditorialSplit";
 import { Mono } from "@/components/ui/Mono";
@@ -25,6 +26,7 @@ export function DepartmentTemplate({
   index,
 }: DepartmentTemplateProps) {
   const total = 28;
+  const tBb = useTranslations("bloodBank");
 
   return (
     <main>
@@ -77,6 +79,14 @@ export function DepartmentTemplate({
                         : `See all ${consultants.length} consultants`}{" "}
                       →
                     </Link>
+                    {department.richPageHref ? (
+                      <Link
+                        href={department.richPageHref.replace(/^\/(?:en|hi)\//, `/${locale}/`)}
+                        className="meta inline-flex items-center gap-2 text-[14px] underline-offset-4 hover:underline"
+                      >
+                        {tBb("departmentStubCta")} →
+                      </Link>
+                    ) : null}
                   </div>
                 </>
               }

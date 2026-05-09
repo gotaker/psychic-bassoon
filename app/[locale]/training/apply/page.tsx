@@ -42,7 +42,7 @@ export default async function ApplyPage({ params }: { params: Promise<{ locale: 
     <>
       <SiteHeader locale={locale} />
       <ApplyMain locale={locale} />
-      <SiteFooter />
+      <SiteFooter locale={locale} />
       <StickyCtaBar locale={locale} />
     </>
   );
@@ -176,9 +176,7 @@ function ApplyMain({ locale }: { locale: Locale }) {
           </div>
           <div className="mt-16 border-t border-white/15 pt-8 md:mt-24">
             <Mono>{t("apply.disclaimerKicker")}</Mono>
-            <p className="body-sm mt-4 max-w-[80ch] text-white/65">
-              {t("apply.disclaimer")}
-            </p>
+            <p className="body-sm mt-4 max-w-[80ch] text-white/65">{t("apply.disclaimer")}</p>
           </div>
         </div>
       </section>

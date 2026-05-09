@@ -6,11 +6,7 @@ import { LocationsBand } from "@/components/home/LocationsBand";
 import { Mono } from "@/components/ui/Mono";
 import type { Locale } from "@/lib/locales";
 
-export default async function LocationsPage({
-  params,
-}: {
-  params: Promise<{ locale: Locale }>;
-}) {
+export default async function LocationsPage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
 
@@ -28,7 +24,7 @@ export default async function LocationsPage({
         </section>
         <LocationsBand locale={locale} />
       </main>
-      <SiteFooter />
+      <SiteFooter locale={locale} />
       <StickyCtaBar locale={locale} />
     </>
   );

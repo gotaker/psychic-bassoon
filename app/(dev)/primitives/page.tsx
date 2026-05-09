@@ -77,7 +77,7 @@ export default function PrimitivesDevPage() {
         <div className="grid gap-6">
           {(["sm", "md", "lg"] as const).map((size) => (
             <div key={size} className="flex flex-wrap items-center gap-3">
-              <span className="meta w-12 uppercase tracking-[0.14em] text-[color:var(--color-ink-soft)]">
+              <span className="meta w-12 tracking-[0.14em] text-[color:var(--color-ink-soft)] uppercase">
                 {size}
               </span>
               <Button variant="primary" size={size}>
@@ -136,12 +136,7 @@ export default function PrimitivesDevPage() {
       <Block title="PhotoPlaceholder — 5 tones">
         <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-5">
           {TONES.map((tone) => (
-            <PhotoPlaceholder
-              key={tone}
-              tone={tone}
-              caption={`tone · ${tone}`}
-              ratio="tall"
-            />
+            <PhotoPlaceholder key={tone} tone={tone} caption={`tone · ${tone}`} ratio="tall" />
           ))}
         </div>
         <div className="mt-8">

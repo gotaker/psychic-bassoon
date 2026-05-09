@@ -1,4 +1,4 @@
-import { Location } from "./types";
+import type { Location } from "./types";
 
 // Three locations per PRODUCT.md §6 visit panel + §10 ops constraints.
 // `mapsQuery` is optional and used by LocationsBand to embed Google Maps.

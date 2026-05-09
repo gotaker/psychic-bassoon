@@ -5,11 +5,7 @@ import { StickyCtaBar } from "@/components/layout/StickyCtaBar";
 import { PlaceholderPage } from "@/components/layout/PlaceholderPage";
 import type { Locale } from "@/lib/locales";
 
-export default async function VisitPage({
-  params,
-}: {
-  params: Promise<{ locale: Locale }>;
-}) {
+export default async function VisitPage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
   return (
@@ -30,16 +26,16 @@ export default async function VisitPage({
                 and 17:00–19:00. Emergency is open 24/7.
               </p>
               <p>
-                We're cashless across 38 insurance networks including CGHS, ECHS, ESI, Star, Bajaj
-                Allianz, and HDFC ERGO. Bring your insurance card and a photo ID.
+                We&apos;re cashless across 38 insurance networks including CGHS, ECHS, ESI, Star,
+                Bajaj Allianz, and HDFC ERGO. Bring your insurance card and a photo ID.
               </p>
               <p>
                 International patients: visa-letter assistance, airport pickup, and a dedicated
                 coordinator are available — please call ahead.
               </p>
               <p>
-                We're on NH-9 at the Hapur Bypass. A free shuttle runs between Hapur Junction and
-                the main campus every 30 minutes.
+                We&apos;re on NH-9 at the Hapur Bypass. A free shuttle runs between Hapur Junction
+                and the main campus every 30 minutes.
               </p>
               <p>
                 Full visit page rolls out in the coming weeks. For specific questions, please call
@@ -65,12 +61,14 @@ export default async function VisitPage({
                 एनएच-९ पर हापुड़ बाईपास के पास। हापुड़ जंक्शन से मुख्य परिसर तक हर ३० मिनट में
                 निःशुल्क शटल चलती है।
               </p>
-              <p>विस्तृत पृष्ठ आगामी सप्ताहों में। विशिष्ट प्रश्नों के लिए स्वागत डेस्क पर कॉल करें।</p>
+              <p>
+                विस्तृत पृष्ठ आगामी सप्ताहों में। विशिष्ट प्रश्नों के लिए स्वागत डेस्क पर कॉल करें।
+              </p>
             </>
           ),
         }}
       />
-      <SiteFooter />
+      <SiteFooter locale={locale} />
       <StickyCtaBar locale={locale} />
     </>
   );

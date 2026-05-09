@@ -1,13 +1,6 @@
 import { describe, it, expect } from "vitest";
-import { z } from "zod";
-import {
-  Doctor,
-  Department,
-  DepartmentDetail,
-  NewsItem,
-  Stat,
-  Location,
-} from "@/content/types";
+import type { z } from "zod";
+import { Doctor, Department, DepartmentDetail, NewsItem, Stat, Location } from "@/content/types";
 import { doctors } from "@/content/doctors";
 import { departments } from "@/content/departments";
 import { news } from "@/content/news";
@@ -18,11 +11,7 @@ import { cardiology } from "@/content/departments/cardiology";
 // L4 acceptance gate: every record in /content must parse cleanly through its
 // Zod schema. Failures here mean the seed data has drifted from the contract.
 
-function expectAllParse<T>(
-  records: readonly unknown[],
-  schema: z.ZodType<T>,
-  label: string,
-): void {
+function expectAllParse<T>(records: readonly unknown[], schema: z.ZodType<T>, label: string): void {
   records.forEach((record, idx) => {
     const result = schema.safeParse(record);
     if (!result.success) {

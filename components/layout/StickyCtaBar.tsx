@@ -23,11 +23,11 @@ export function StickyCtaBar({ locale, doctorsAvailableToday = 27 }: StickyCtaBa
     <div
       role="complementary"
       aria-label={tEmergency("label")}
-      className="pointer-events-none fixed inset-x-0 bottom-0 z-40 px-6 pb-3.5 pt-3.5"
+      className="pointer-events-none fixed inset-x-0 bottom-0 z-40 px-6 pt-3.5 pb-3.5"
     >
-      <div className="pointer-events-auto mx-auto flex max-w-[1100px] items-center gap-3.5 rounded-[var(--radius-pill)] bg-[color:var(--color-deep)]/96 py-2 pl-5 pr-2 text-white shadow-[0_16px_40px_rgba(14,31,34,0.28),0_2px_8px_rgba(0,0,0,0.16)] backdrop-blur">
+      <div className="pointer-events-auto mx-auto flex max-w-[1100px] items-center gap-3.5 rounded-[var(--radius-pill)] bg-[color:var(--color-deep)]/96 py-2 pr-2 pl-5 text-white shadow-[0_16px_40px_rgba(14,31,34,0.28),0_2px_8px_rgba(0,0,0,0.16)] backdrop-blur">
         <span
-          className="inline-flex items-center gap-2.5 text-[13.5px] font-medium leading-tight"
+          className="inline-flex items-center gap-2.5 text-[13.5px] leading-tight font-medium"
           aria-live="polite"
         >
           <span

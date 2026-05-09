@@ -1,4 +1,4 @@
-import { Department } from "./types";
+import type { Department } from "./types";
 
 // 28 specialties per PRODUCT.md §1. The first 16 are ported from prototype/i18n.js.
 // The remaining 12 fill out the full bench (anesthesiology, urology, etc.) for v1.

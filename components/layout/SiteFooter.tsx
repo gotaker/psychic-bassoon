@@ -1,7 +1,12 @@
 import { useTranslations } from "next-intl";
 import { Mono } from "@/components/ui/Mono";
+import type { Locale } from "@/lib/locales";
 
-export function SiteFooter() {
+type SiteFooterProps = {
+  locale: Locale;
+};
+
+export function SiteFooter({ locale }: SiteFooterProps) {
   const tFooter = useTranslations("footer");
   const tAcc = useTranslations("accreditations");
   return (
@@ -23,6 +28,11 @@ export function SiteFooter() {
             <span aria-hidden="true">·</span>
             <Mono className="text-[color:var(--color-ink-soft)]">{tAcc("iso15189")}</Mono>
           </div>
+        </div>
+        <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-[12px]">
+          <a href={`/${locale}/blood-bank`} className="underline-offset-4 hover:underline">
+            {tFooter("bloodBankLink")}
+          </a>
         </div>
         <div className="mt-6 flex flex-wrap justify-between gap-x-12 gap-y-2 text-[12px]">
           <span>{tFooter("copyright", { year: new Date().getFullYear() })}</span>

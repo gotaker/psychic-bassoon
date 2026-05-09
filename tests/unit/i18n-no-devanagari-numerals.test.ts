@@ -36,9 +36,7 @@ describe("messages/hi.json: no Devanagari numerals", () => {
   it("contains zero Devanagari digit codepoints in any string value", () => {
     const offenders = findOffenders(hi as AnyJson);
     if (offenders.length > 0) {
-      const lines = offenders.map(
-        (o) => `  - ${o.path}: ${JSON.stringify(o.value)}`,
-      );
+      const lines = offenders.map((o) => `  - ${o.path}: ${JSON.stringify(o.value)}`);
       throw new Error(
         `messages/hi.json contains Devanagari numerals — these must come from lib/formatters.ts at render time, not from message literals.\n` +
           `${offenders.length} offending key${offenders.length === 1 ? "" : "s"}:\n${lines.join("\n")}`,

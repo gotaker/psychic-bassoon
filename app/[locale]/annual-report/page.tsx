@@ -36,8 +36,8 @@ export default async function AnnualReportPage({
           ),
           hi: (
             <p>
-              पूर्ण पीडीएफ़ आगामी सप्ताहों में यहाँ उपलब्ध होगी। विशिष्ट डेटा — नैदानिक परिणाम, अनुसंधान,
-              वित्तीय — के लिए स्वागत डेस्क पर कॉल करके ट्रस्ट कार्यालय से बात करें, या{" "}
+              पूर्ण पीडीएफ़ आगामी सप्ताहों में यहाँ उपलब्ध होगी। विशिष्ट डेटा — नैदानिक परिणाम,
+              अनुसंधान, वित्तीय — के लिए स्वागत डेस्क पर कॉल करके ट्रस्ट कार्यालय से बात करें, या{" "}
               <a className="underline underline-offset-4" href="mailto:trust@dnh.in">
                 trust@dnh.in
               </a>{" "}
@@ -46,7 +46,7 @@ export default async function AnnualReportPage({
           ),
         }}
       />
-      <SiteFooter />
+      <SiteFooter locale={locale} />
       <StickyCtaBar locale={locale} />
     </>
   );

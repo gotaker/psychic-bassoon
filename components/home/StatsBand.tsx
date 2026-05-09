@@ -17,21 +17,15 @@ export function StatsBand({ locale }: { locale: Locale }) {
   const t = useTranslations("home.stats");
 
   return (
-    <section
-      data-tone="deep"
-      className="bg-[color:var(--color-deep)] text-white"
-    >
-      <div className="page-gutter mx-auto w-full max-w-[var(--content-max)] section-y">
+    <section data-tone="deep" className="bg-[color:var(--color-deep)] text-white">
+      <div className="page-gutter section-y mx-auto w-full max-w-[var(--content-max)]">
         <Mono className="text-[color:var(--color-accent)]">{t("kicker")}</Mono>
         <h2 className="display-md mt-3 max-w-[24ch]">{t("title")}</h2>
         <ul className="mt-10 grid grid-cols-2 gap-x-0 gap-y-10 border-t border-white/15 md:grid-cols-3 lg:grid-cols-6">
           {stats.map((s, i) => (
-            <li
-              key={s.id}
-              className={`pl-5 pr-3 pt-6 ${i > 0 ? "border-l border-white/15" : ""}`}
-            >
+            <li key={s.id} className={`pt-6 pr-3 pl-5 ${i > 0 ? "border-l border-white/15" : ""}`}>
               <span
-                className="block font-medium leading-[0.95] tracking-[-0.025em]"
+                className="block leading-[0.95] font-medium tracking-[-0.025em]"
                 style={{ fontFamily: "var(--font-serif)", fontSize: 42 }}
               >
                 {formatValue(s.value, locale)}

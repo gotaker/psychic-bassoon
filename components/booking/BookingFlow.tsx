@@ -18,21 +18,16 @@ type BookingDay = "today" | "tomorrow" | "d2" | "d3";
 
 type BookingFlowProps = {
   locale: Locale;
-  departments: { slug: string; name: { en: string; hi: string }; tagline: { en: string; hi: string } }[];
+  departments: {
+    slug: string;
+    name: { en: string; hi: string };
+    tagline: { en: string; hi: string };
+  }[];
   doctors: Doctor[];
   initialDoctorId?: string;
 };
 
-const SLOT_TIMES = [
-  "09:00",
-  "09:30",
-  "10:30",
-  "11:15",
-  "14:00",
-  "14:45",
-  "16:00",
-  "16:45",
-];
+const SLOT_TIMES = ["09:00", "09:30", "10:30", "11:15", "14:00", "14:45", "16:00", "16:45"];
 // Mock taken slots (deterministic by doctor id hash) — L6 will swap to real availability.
 function isSlotTaken(doctorId: string, time: string): boolean {
   const hash = [...`${doctorId}${time}`].reduce((a, c) => a + c.charCodeAt(0), 0);
@@ -71,8 +66,8 @@ export function BookingFlow({ locale, departments, doctors, initialDoctorId }: B
     defaultValues: { patientName: "", phoneE164: "", notes: "" },
   });
 
-  const selectedDept = deptSlug ? departments.find((d) => d.slug === deptSlug) ?? null : null;
-  const selectedDoctor = doctorId ? doctors.find((d) => d.id === doctorId) ?? null : null;
+  const selectedDept = deptSlug ? (departments.find((d) => d.slug === deptSlug) ?? null) : null;
+  const selectedDoctor = doctorId ? (doctors.find((d) => d.id === doctorId) ?? null) : null;
   const filteredDoctors = useMemo(() => {
     if (!deptSlug) return [];
     return doctors.filter((d) => (d.departmentSlugs as readonly string[]).includes(deptSlug));
@@ -110,7 +105,7 @@ export function BookingFlow({ locale, departments, doctors, initialDoctorId }: B
 
   if (confirmation) {
     return (
-      <div className="page-gutter mx-auto w-full max-w-[var(--content-max-booking)] section-y">
+      <div className="page-gutter section-y mx-auto w-full max-w-[var(--content-max-booking)]">
         <div className="rounded-[var(--radius-lg)] bg-[color:var(--color-deep)] p-10 text-white md:p-16">
           <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
             <CheckIcon size={20} />
@@ -157,7 +152,7 @@ export function BookingFlow({ locale, departments, doctors, initialDoctorId }: B
   }
 
   return (
-    <div className="page-gutter mx-auto w-full max-w-[var(--content-max-booking)] section-y">
+    <div className="page-gutter section-y mx-auto w-full max-w-[var(--content-max-booking)]">
       <Mono>{locale === "hi" ? "अपॉइंटमेंट" : "BOOKING"}</Mono>
       <h1 className="display-lg mt-3 max-w-[18ch]">
         {locale === "hi"
@@ -195,7 +190,7 @@ export function BookingFlow({ locale, departments, doctors, initialDoctorId }: B
                     aria-hidden="true"
                     className="h-12 w-12 rounded-full bg-[color:var(--color-accent-2)]"
                   />
-                  <span className="block text-[18px] font-semibold leading-tight tracking-[-0.005em]">
+                  <span className="block text-[18px] leading-tight font-semibold tracking-[-0.005em]">
                     {dept.name[locale]}
                   </span>
                   <span className="body-sm text-[color:var(--color-ink-soft)]">
@@ -281,9 +276,7 @@ export function BookingFlow({ locale, departments, doctors, initialDoctorId }: B
                   </button>
                 ))}
               </div>
-              <Mono className="mt-6 block">
-                {locale === "hi" ? "समय चुनें" : "PICK A TIME"}
-              </Mono>
+              <Mono className="mt-6 block">{locale === "hi" ? "समय चुनें" : "PICK A TIME"}</Mono>
               <ul className="mt-3 grid grid-cols-4 gap-2">
                 {SLOT_TIMES.map((slot) => {
                   const taken = isSlotTaken(selectedDoctor.id, slot);
@@ -303,12 +296,7 @@ export function BookingFlow({ locale, departments, doctors, initialDoctorId }: B
                 })}
               </ul>
               <div className="mt-6 flex justify-end">
-                <Button
-                  variant="primary"
-                  size="md"
-                  disabled={!time}
-                  onClick={() => setStep(2)}
-                >
+                <Button variant="primary" size="md" disabled={!time} onClick={() => setStep(2)}>
                   {locale === "hi" ? "आगे बढ़ें" : "Continue"}
                   <ArrowIcon size={13} />
                 </Button>
@@ -331,7 +319,10 @@ export function BookingFlow({ locale, departments, doctors, initialDoctorId }: B
               label={locale === "hi" ? "रोगी का नाम" : "Patient name"}
               {...register("patientName")}
               {...(errors.patientName?.message
-                ? { error: locale === "hi" ? "कृपया पूरा नाम दर्ज करें।" : "Please enter the full name." }
+                ? {
+                    error:
+                      locale === "hi" ? "कृपया पूरा नाम दर्ज करें।" : "Please enter the full name.",
+                  }
                 : {})}
             />
             <Field
@@ -346,9 +337,12 @@ export function BookingFlow({ locale, departments, doctors, initialDoctorId }: B
                         ? "10 अंकों का भारतीय मोबाइल नंबर दर्ज करें।"
                         : "Enter a 10-digit Indian mobile number, prefixed with +91.",
                   }
-                : { hint: locale === "hi"
-                    ? "हम पुष्टि के लिए SMS भेजेंगे।"
-                    : "We'll text the confirmation here." })}
+                : {
+                    hint:
+                      locale === "hi"
+                        ? "हम पुष्टि के लिए SMS भेजेंगे।"
+                        : "We'll text the confirmation here.",
+                  })}
             />
             <TextareaField
               id="notes"
@@ -409,9 +403,7 @@ export function BookingFlow({ locale, departments, doctors, initialDoctorId }: B
                 </dd>
               </div>
               <div>
-                <dt className="text-white/60">
-                  {locale === "hi" ? "स्थान" : "Location"}
-                </dt>
+                <dt className="text-white/60">{locale === "hi" ? "स्थान" : "Location"}</dt>
                 <dd className="mt-0.5">{selectedDoctor.location[locale]}</dd>
               </div>
             </dl>

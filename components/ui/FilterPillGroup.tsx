@@ -27,7 +27,7 @@ export function FilterPillGroup({
 }: FilterPillGroupProps) {
   return (
     <fieldset className={cn("flex flex-wrap items-center gap-x-3 gap-y-2", className)}>
-      <legend className="meta uppercase tracking-[0.14em] text-[color:var(--color-ink-soft)]">
+      <legend className="meta tracking-[0.14em] text-[color:var(--color-ink-soft)] uppercase">
         {label}
       </legend>
       <div role="radiogroup" className="flex flex-wrap gap-1.5">

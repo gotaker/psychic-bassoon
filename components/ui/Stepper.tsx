@@ -17,10 +17,7 @@ type StepperProps = {
 // Dotted connectors; completed steps show a check. DESIGN.md §5.5.
 export function Stepper({ steps, current, className }: StepperProps) {
   return (
-    <ol
-      className={cn("flex items-center gap-3", className)}
-      aria-label="Booking progress"
-    >
+    <ol className={cn("flex items-center gap-3", className)} aria-label="Booking progress">
       {steps.map((step, idx) => {
         const isDone = idx < current;
         const isActive = idx === current;
@@ -31,8 +28,7 @@ export function Stepper({ steps, current, className }: StepperProps) {
                 aria-current={isActive ? "step" : undefined}
                 className={cn(
                   "flex h-7 w-7 items-center justify-center rounded-full text-[11px] font-semibold",
-                  isDone &&
-                    "bg-[color:var(--color-deep)] text-white",
+                  isDone && "bg-[color:var(--color-deep)] text-white",
                   isActive &&
                     "bg-[color:var(--color-deep)] text-white ring-2 ring-[color:var(--color-deep)]/20 ring-offset-2 ring-offset-[color:var(--color-paper)]",
                   !isDone &&
@@ -44,10 +40,8 @@ export function Stepper({ steps, current, className }: StepperProps) {
               </span>
               <span
                 className={cn(
-                  "meta uppercase tracking-[0.12em]",
-                  isActive
-                    ? "text-[color:var(--color-ink)]"
-                    : "text-[color:var(--color-ink-soft)]",
+                  "meta tracking-[0.12em] uppercase",
+                  isActive ? "text-[color:var(--color-ink)]" : "text-[color:var(--color-ink-soft)]",
                 )}
               >
                 {step.label}

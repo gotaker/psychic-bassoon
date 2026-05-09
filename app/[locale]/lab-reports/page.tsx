@@ -5,11 +5,7 @@ import { StickyCtaBar } from "@/components/layout/StickyCtaBar";
 import { PlaceholderPage } from "@/components/layout/PlaceholderPage";
 import type { Locale } from "@/lib/locales";
 
-export default async function LabReportsPage({
-  params,
-}: {
-  params: Promise<{ locale: Locale }>;
-}) {
+export default async function LabReportsPage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
   return (
@@ -26,9 +22,9 @@ export default async function LabReportsPage({
           en: (
             <>
               <p>
-                We're integrating online lab-report retrieval. Until that's live, the front-desk
-                team can read your report to you over the phone or have a copy ready for collection
-                from Block A reception.
+                We&apos;re integrating online lab-report retrieval. Until that&apos;s live, the
+                front-desk team can read your report to you over the phone or have a copy ready for
+                collection from Block A reception.
               </p>
               <p>Bring your report ID (printed on the test slip) and a photo ID.</p>
             </>
@@ -44,7 +40,7 @@ export default async function LabReportsPage({
           ),
         }}
       />
-      <SiteFooter />
+      <SiteFooter locale={locale} />
       <StickyCtaBar locale={locale} />
     </>
   );

@@ -16,7 +16,7 @@ function FieldShell({ id, label, hint, error, children }: FieldShellProps) {
   const describedById = hint || error ? `${id}-desc` : undefined;
   return (
     <label className="block" htmlFor={id}>
-      <span className="meta mb-1.5 block uppercase tracking-[0.12em] text-[color:var(--color-ink-soft)]">
+      <span className="meta mb-1.5 block tracking-[0.12em] text-[color:var(--color-ink-soft)] uppercase">
         {label}
       </span>
       {children}

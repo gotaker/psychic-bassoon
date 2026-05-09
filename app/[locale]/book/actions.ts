@@ -53,7 +53,7 @@ export async function submitBooking(raw: unknown): Promise<BookingResult> {
 
   const ref = generateRef();
   // Log without leaking phone numbers in plaintext analytics.
-  // eslint-disable-next-line no-console
+
   console.info(
     "[booking]",
     JSON.stringify({

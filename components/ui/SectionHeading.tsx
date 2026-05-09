@@ -20,12 +20,7 @@ export function SectionHeading({
   className,
 }: SectionHeadingProps) {
   return (
-    <header
-      className={cn(
-        "flex flex-wrap items-end justify-between gap-x-8 gap-y-3",
-        className,
-      )}
-    >
+    <header className={cn("flex flex-wrap items-end justify-between gap-x-8 gap-y-3", className)}>
       <div>
         <Mono>{kicker}</Mono>
         <h2 className={cn(size === "lg" ? "display-lg" : "display-md", "mt-3 max-w-[18ch]")}>

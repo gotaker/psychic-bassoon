@@ -48,7 +48,7 @@ export default async function ApplicationFormPage({
       </div>
       <ApplicationFormMain locale={locale} />
       <div className="print:hidden">
-        <SiteFooter />
+        <SiteFooter locale={locale} />
         <StickyCtaBar locale={locale} />
       </div>
     </>

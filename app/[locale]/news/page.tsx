@@ -24,11 +24,11 @@ export default async function NewsPage({ params }: { params: Promise<{ locale: L
               <li
                 key={n.id}
                 id={n.id}
-                className="rounded-[var(--radius-lg)] bg-white p-6 border border-[color:var(--color-line-soft)]"
+                className="rounded-[var(--radius-lg)] border border-[color:var(--color-line-soft)] bg-white p-6"
               >
                 <Mono className="mb-3 block">{n.category[locale]}</Mono>
                 <h2
-                  className="text-[22px] font-medium leading-tight tracking-[-0.015em]"
+                  className="text-[22px] leading-tight font-medium tracking-[-0.015em]"
                   style={{ fontFamily: "var(--font-serif)" }}
                 >
                   {n.headline[locale]}
@@ -44,7 +44,7 @@ export default async function NewsPage({ params }: { params: Promise<{ locale: L
           </ul>
         </section>
       </main>
-      <SiteFooter />
+      <SiteFooter locale={locale} />
       <StickyCtaBar locale={locale} />
     </>
   );

@@ -22,6 +22,7 @@ export function SiteHeader({ locale, variant = "solid" }: SiteHeaderProps) {
   const navLinks: { href: string; label: string }[] = [
     { href: `/${locale}/find-a-doctor`, label: tNav("findDoctor") },
     { href: `/${locale}/departments`, label: tNav("departments") },
+    { href: `/${locale}/blood-bank`, label: tNav("bloodBank") },
     { href: `/${locale}/visit`, label: tNav("visit") },
     { href: `/${locale}/about`, label: tNav("about") },
     { href: `/${locale}/news`, label: tNav("news") },

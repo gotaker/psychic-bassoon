@@ -22,11 +22,11 @@ export function ActionStrip({ locale }: { locale: Locale }) {
   return (
     <section
       data-tone="paper-2"
-      className="bg-[color:var(--color-paper-2)] border-y border-[color:var(--color-line-soft)]"
+      className="border-y border-[color:var(--color-line-soft)] bg-[color:var(--color-paper-2)]"
     >
       <div className="page-gutter mx-auto w-full max-w-[var(--content-max)] py-8">
         <Mono className="mb-4 block">{t("kicker")}</Mono>
-        <ul className="grid grid-cols-1 divide-y divide-[color:var(--color-line-soft)] sm:grid-cols-2 sm:divide-y-0 sm:divide-x lg:grid-cols-4">
+        <ul className="grid grid-cols-1 divide-y divide-[color:var(--color-line-soft)] sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-4">
           {tiles.map(({ key, href, Icon }) => (
             <li key={key}>
               <Link
@@ -37,7 +37,7 @@ export function ActionStrip({ locale }: { locale: Locale }) {
                   <Icon size={20} />
                 </span>
                 <span className="flex-1">
-                  <span className="block text-[15px] font-semibold leading-tight tracking-[-0.005em]">
+                  <span className="block text-[15px] leading-tight font-semibold tracking-[-0.005em]">
                     {t(`tiles.${key}.title`)}
                   </span>
                   <span className="body-sm mt-1 block text-[color:var(--color-ink-soft)]">

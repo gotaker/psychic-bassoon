@@ -79,6 +79,7 @@ Every screen in v1 must serve one of these. Anything that doesn't is cut.
 /about                             Story, leadership, accreditations
 /news                              Stories & press
 /locations                         Hapur main, Annexe, Cancer wing
+/blood-bank                        Public donor + family arranging-blood lanes (NABH/NABL on-site)
 /careers                           Stub for v1
 /giving                            Donor pathway, stub for v1
 ```

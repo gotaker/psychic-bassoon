@@ -53,7 +53,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       />
       <VisionMission locale={locale} />
       <LeadershipGrid locale={locale} />
-      <SiteFooter />
+      <SiteFooter locale={locale} />
       <StickyCtaBar locale={locale} />
     </>
   );

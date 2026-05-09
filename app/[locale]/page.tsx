@@ -71,7 +71,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: L
         <StatsBand locale={locale} />
         <LocationsBand locale={locale} />
       </main>
-      <SiteFooter />
+      <SiteFooter locale={locale} />
       <StickyCtaBar locale={locale} />
     </>
   );

@@ -13,9 +13,7 @@ import { medicalProcedureLD } from "@/lib/structured-data";
 import { locales, type Locale } from "@/lib/locales";
 
 export function generateStaticParams() {
-  return locales.flatMap((locale) =>
-    departments.map((dept) => ({ locale, slug: dept.slug })),
-  );
+  return locales.flatMap((locale) => departments.map((dept) => ({ locale, slug: dept.slug })));
 }
 
 export async function generateMetadata({
@@ -70,7 +68,7 @@ export default async function DepartmentDetailPage({
         consultants={consultants}
         index={index}
       />
-      <SiteFooter />
+      <SiteFooter locale={locale} />
       <StickyCtaBar locale={locale} />
     </>
   );

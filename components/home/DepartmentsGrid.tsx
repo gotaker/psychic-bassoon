@@ -9,7 +9,7 @@ export function DepartmentsGrid({ locale }: { locale: Locale }) {
 
   return (
     <section className="bg-white">
-      <div className="page-gutter mx-auto w-full max-w-[var(--content-max)] section-y">
+      <div className="page-gutter section-y mx-auto w-full max-w-[var(--content-max)]">
         <header className="mb-8 flex flex-wrap items-end justify-between gap-x-8 gap-y-3">
           <div>
             <Mono>{t("kicker")}</Mono>
@@ -32,7 +32,7 @@ export function DepartmentsGrid({ locale }: { locale: Locale }) {
                 <span className="mono-tag text-[color:var(--color-ink-soft)]">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span className="block text-[16px] font-semibold leading-tight tracking-[-0.005em] text-[color:var(--color-ink)]">
+                <span className="block text-[16px] leading-tight font-semibold tracking-[-0.005em] text-[color:var(--color-ink)]">
                   {dept.name[locale]}
                 </span>
                 <span className="body-sm mt-1 text-[color:var(--color-ink-soft)]">
