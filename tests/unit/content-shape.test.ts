@@ -78,4 +78,18 @@ describe("content shape", () => {
       }
     }
   });
+
+  it("blood-bank dept entry exists and uses richPageHref", () => {
+    const entry = departments.find((d) => d.slug === "blood-bank");
+    expect(entry).toBeDefined();
+    expect(entry?.richPageHref).toBe("/en/blood-bank");
+  });
+
+  it("every richPageHref is locale-prefixed (en|hi)", () => {
+    for (const d of departments) {
+      if (d.richPageHref) {
+        expect(d.richPageHref).toMatch(/^\/(?:en|hi)\//);
+      }
+    }
+  });
 });
