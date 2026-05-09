@@ -24,7 +24,7 @@ export function LocationsBand({ locale }: { locale: Locale }) {
 
   return (
     <section className="bg-[color:var(--color-paper)]">
-      <div className="page-gutter mx-auto w-full max-w-[var(--content-max)] section-y">
+      <div className="page-gutter section-y mx-auto w-full max-w-[var(--content-max)]">
         <Mono>{t("kicker")}</Mono>
         <h2 className="display-md mt-3">{t("title")}</h2>
 
@@ -32,7 +32,7 @@ export function LocationsBand({ locale }: { locale: Locale }) {
           {locations.map((loc) => (
             <li key={loc.id} className="flex flex-col">
               <h3
-                className="text-[22px] font-medium leading-tight tracking-[-0.015em]"
+                className="text-[22px] leading-tight font-medium tracking-[-0.015em]"
                 style={{ fontFamily: "var(--font-serif)" }}
               >
                 {loc.name[locale]}
@@ -49,7 +49,7 @@ export function LocationsBand({ locale }: { locale: Locale }) {
                 </span>
                 <a
                   href={`tel:${loc.phone.replace(/\s/g, "")}`}
-                  className="hover:underline underline-offset-4"
+                  className="underline-offset-4 hover:underline"
                 >
                   {loc.phone}
                 </a>
@@ -75,9 +75,7 @@ export function LocationsBand({ locale }: { locale: Locale }) {
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[var(--radius-md)] border border-[color:var(--color-line-soft)] bg-[color:var(--color-paper-2)] sm:aspect-square lg:aspect-[3/4] lg:flex-1">
               <iframe
                 src={mapsEmbedUrl(mainLocation, locale)}
-                title={`${mainLocation.name[locale]} — ${
-                  locale === "hi" ? "मानचित्र" : "map"
-                }`}
+                title={`${mainLocation.name[locale]} — ${locale === "hi" ? "मानचित्र" : "map"}`}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 className="absolute inset-0 h-full w-full border-0"

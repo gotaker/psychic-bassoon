@@ -25,17 +25,8 @@ export function Section({
   ...rest
 }: SectionProps) {
   return (
-    <section
-      data-tone={tone}
-      className={cn("section-y", toneClasses[tone], className)}
-      {...rest}
-    >
-      <div
-        className={cn(
-          "page-gutter mx-auto w-full max-w-[var(--content-max)]",
-          innerClassName,
-        )}
-      >
+    <section data-tone={tone} className={cn("section-y", toneClasses[tone], className)} {...rest}>
+      <div className={cn("page-gutter mx-auto w-full max-w-[var(--content-max)]", innerClassName)}>
         {children}
       </div>
     </section>

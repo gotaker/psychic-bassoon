@@ -6,7 +6,7 @@ import type { Locale } from "@/lib/locales";
 export function LeadershipGrid({ locale }: { locale: Locale }) {
   return (
     <section className="bg-white">
-      <div className="page-gutter mx-auto w-full max-w-[var(--content-max)] section-y">
+      <div className="page-gutter section-y mx-auto w-full max-w-[var(--content-max)]">
         <Mono>{locale === "hi" ? "नेतृत्व" : "LEADERSHIP"}</Mono>
         <h2 className="display-md mt-3 max-w-[20ch]">
           {locale === "hi"
@@ -31,7 +31,7 @@ export function LeadershipGrid({ locale }: { locale: Locale }) {
                 />
               </div>
               <p
-                className="mt-3 text-[16px] font-medium leading-tight tracking-[-0.005em]"
+                className="mt-3 text-[16px] leading-tight font-medium tracking-[-0.005em]"
                 style={{ fontFamily: "var(--font-serif)" }}
               >
                 {member.name[locale]}

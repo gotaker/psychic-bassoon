@@ -21,7 +21,10 @@ export const Doctor = z.object({
   location: LocalisedString,
   nextSlot: LocalisedString,
   avatarTone: z.string().regex(/^#[0-9a-fA-F]{6}$/),
-  photo: z.string().regex(/^\/images\/doctors\/[a-z0-9-]+\.(jpg|jpeg|png|webp)$/).optional(),
+  photo: z
+    .string()
+    .regex(/^\/images\/doctors\/[a-z0-9-]+\.(jpg|jpeg|png|webp)$/)
+    .optional(),
   departmentSlugs: z.array(z.string()).min(1),
 });
 export type Doctor = z.infer<typeof Doctor>;
@@ -44,7 +47,10 @@ export const Department = z.object({
   // When set, the department detail page renders a single "Visit our X" CTA
   // pointing here. Used for departments that have a richer top-level public
   // surface (e.g. /blood-bank).
-  richPageHref: z.string().regex(/^\/(?:en|hi)\/[a-z0-9-/]+$/).optional(),
+  richPageHref: z
+    .string()
+    .regex(/^\/(?:en|hi)\/[a-z0-9-/]+$/)
+    .optional(),
 });
 export type Department = z.infer<typeof Department>;
 
@@ -137,38 +143,46 @@ export const BloodBankContent = z.object({
     photoTone: z.enum(["mocha", "slate", "sand", "sage", "clay"]),
   }),
   accreditations: z.array(z.enum(["nabh", "nabl", "iso15189"])).min(1),
-  services: z.array(
-    z.object({
-      id: z.string().regex(/^[a-z][a-z0-9-]*$/),
-      label: LocalisedString,
-      note: LocalisedString.optional(),
-    }),
-  ).min(1),
+  services: z
+    .array(
+      z.object({
+        id: z.string().regex(/^[a-z][a-z0-9-]*$/),
+        label: LocalisedString,
+        note: LocalisedString.optional(),
+      }),
+    )
+    .min(1),
   donate: z.object({
-    eligibility: z.array(
-      z.object({
-        id: z.string().regex(/^[a-z][a-z0-9-]*$/),
-        rule: LocalisedString,
-      }),
-    ).min(3),
-    process: z.array(
-      z.object({
-        id: z.string().regex(/^[a-z][a-z0-9-]*$/),
-        step: LocalisedString,
-        detail: LocalisedString,
-      }),
-    ).min(2),
+    eligibility: z
+      .array(
+        z.object({
+          id: z.string().regex(/^[a-z][a-z0-9-]*$/),
+          rule: LocalisedString,
+        }),
+      )
+      .min(3),
+    process: z
+      .array(
+        z.object({
+          id: z.string().regex(/^[a-z][a-z0-9-]*$/),
+          step: LocalisedString,
+          detail: LocalisedString,
+        }),
+      )
+      .min(2),
     walkInHours: LocalisedString,
     phone: PhoneE164Relaxed,
   }),
   request: z.object({
     replacementPolicy: LocalisedString,
-    whatToBring: z.array(
-      z.object({
-        id: z.string().regex(/^[a-z][a-z0-9-]*$/),
-        item: LocalisedString,
-      }),
-    ).min(2),
+    whatToBring: z
+      .array(
+        z.object({
+          id: z.string().regex(/^[a-z][a-z0-9-]*$/),
+          item: LocalisedString,
+        }),
+      )
+      .min(2),
     hours: LocalisedString,
     phone: PhoneE164Relaxed,
   }),

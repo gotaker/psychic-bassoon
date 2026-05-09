@@ -109,7 +109,7 @@ export default async function FindADoctorPage({
           </div>
         </section>
         <section className="bg-[color:var(--color-paper)]">
-          <div className="page-gutter mx-auto w-full max-w-[var(--content-max)] section-y">
+          <div className="page-gutter section-y mx-auto w-full max-w-[var(--content-max)]">
             <div className="grid gap-8 lg:grid-cols-[320px_1fr]">
               <aside>
                 <FilterBar

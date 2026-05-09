@@ -36,11 +36,7 @@ export function PlaceholderPage({
               variant="primary"
               size="md"
               href={`tel:${FRONT_DESK_TEL}`}
-              aria-label={
-                locale === "hi"
-                  ? "स्वागत डेस्क पर कॉल करें"
-                  : "Call the front desk"
-              }
+              aria-label={locale === "hi" ? "स्वागत डेस्क पर कॉल करें" : "Call the front desk"}
             >
               <PhoneIcon size={13} />
               {locale === "hi"

@@ -15,7 +15,7 @@ export function RequestLane({ locale, request }: Props) {
   return (
     <section
       id="request"
-      className="bg-[color:var(--color-paper-2)] py-12 md:py-20 scroll-mt-[88px]"
+      className="scroll-mt-[88px] bg-[color:var(--color-paper-2)] py-12 md:py-20"
       aria-labelledby="bb-request-heading"
     >
       <div className="page-gutter mx-auto w-full max-w-[var(--content-max)]">
@@ -50,12 +50,7 @@ export function RequestLane({ locale, request }: Props) {
             <p className="mt-4 text-[15px] text-[color:var(--color-ink)]">
               {request.hours[locale]}
             </p>
-            <Button
-              variant="primary"
-              size="lg"
-              href={`tel:${request.phone}`}
-              className="mt-5"
-            >
+            <Button variant="primary" size="lg" href={`tel:${request.phone}`} className="mt-5">
               {t("ctaCallRequest")}
             </Button>
           </div>

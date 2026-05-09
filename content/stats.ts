@@ -1,4 +1,4 @@
-import { Stat } from "./types";
+import type { Stat } from "./types";
 
 // Stats for the home stats band. Anchored to PRODUCT.md §9 (founding 1958,
 // 540 beds, 28 specialties, 184 consultants) plus 2 derived facts called out

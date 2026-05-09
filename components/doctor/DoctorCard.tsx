@@ -26,7 +26,7 @@ export function DoctorCard({ doctor, locale }: DoctorCardProps) {
       />
       <div className="flex min-w-0 flex-1 flex-col">
         <h3
-          className="truncate text-[22px] font-medium leading-tight tracking-[-0.015em]"
+          className="truncate text-[22px] leading-tight font-medium tracking-[-0.015em]"
           style={{ fontFamily: "var(--font-serif)" }}
         >
           {doctor.name[locale]}
@@ -60,9 +60,7 @@ export function DoctorCard({ doctor, locale }: DoctorCardProps) {
             href={`/${locale}/book?doctor=${doctor.id}`}
             className="flex-shrink-0"
             aria-label={
-              locale === "hi"
-                ? `डॉ. ${lastName} के साथ बुक करें`
-                : `Book with Dr. ${lastName}`
+              locale === "hi" ? `डॉ. ${lastName} के साथ बुक करें` : `Book with Dr. ${lastName}`
             }
           >
             {locale === "hi" ? "बुक करें" : "Book"}

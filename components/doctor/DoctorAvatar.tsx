@@ -15,7 +15,14 @@ type DoctorAvatarProps = {
 // Gradient + serif initials by default. When `photo` is provided, renders
 // next/image instead. DESIGN.md §5.3.
 // Tones are seeded per-doctor in content/doctors.ts and stay stable as identity.
-export function DoctorAvatar({ initials, tone, size = 64, className, photo, alt }: DoctorAvatarProps) {
+export function DoctorAvatar({
+  initials,
+  tone,
+  size = 64,
+  className,
+  photo,
+  alt,
+}: DoctorAvatarProps) {
   if (photo) {
     return (
       <div

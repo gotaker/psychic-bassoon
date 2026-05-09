@@ -20,10 +20,7 @@ export function FAQ({ locale, items }: Props) {
   return (
     <section className="bg-white py-12 md:py-20" aria-labelledby="bb-faq-heading">
       <div className="page-gutter mx-auto w-full max-w-[var(--content-max)]">
-        <h2
-          id="bb-faq-heading"
-          className="display-md max-w-[24ch] text-[color:var(--color-deep)]"
-        >
+        <h2 id="bb-faq-heading" className="display-md max-w-[24ch] text-[color:var(--color-deep)]">
           {t("sectionFaq")}
         </h2>
         <ul className="mt-8 divide-y divide-[color:var(--color-line-soft)] border-y border-[color:var(--color-line-soft)]">
@@ -59,7 +56,7 @@ export function FAQ({ locale, items }: Props) {
                   role="region"
                   aria-labelledby={buttonId}
                   hidden={!isOpen}
-                  className="pb-5 pe-8 text-[15px] text-[color:var(--color-ink-soft)]"
+                  className="pe-8 pb-5 text-[15px] text-[color:var(--color-ink-soft)]"
                 >
                   {item.a[locale]}
                 </div>

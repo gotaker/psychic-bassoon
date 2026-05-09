@@ -25,7 +25,7 @@ export function NewsGrid({ locale }: { locale: Locale }) {
 
   return (
     <section className="bg-white">
-      <div className="page-gutter mx-auto w-full max-w-[var(--content-max)] section-y">
+      <div className="page-gutter section-y mx-auto w-full max-w-[var(--content-max)]">
         <header className="mb-8 flex flex-wrap items-end justify-between gap-x-8 gap-y-3">
           <div>
             <Mono>{t("kicker")}</Mono>
@@ -46,12 +46,12 @@ export function NewsGrid({ locale }: { locale: Locale }) {
             >
               <Mono className="mb-3 block">{n.category[locale]}</Mono>
               <h3
-                className="text-[20px] font-medium leading-tight tracking-[-0.015em]"
+                className="text-[20px] leading-tight font-medium tracking-[-0.015em]"
                 style={{ fontFamily: "var(--font-serif)" }}
               >
                 <Link
                   href={`/${locale}/news#${n.id}`}
-                  className="hover:underline underline-offset-4"
+                  className="underline-offset-4 hover:underline"
                 >
                   {n.headline[locale]}
                 </Link>

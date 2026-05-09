@@ -30,10 +30,7 @@ export function SiteFooter({ locale }: SiteFooterProps) {
           </div>
         </div>
         <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-[12px]">
-          <a
-            href={`/${locale}/blood-bank`}
-            className="underline-offset-4 hover:underline"
-          >
+          <a href={`/${locale}/blood-bank`} className="underline-offset-4 hover:underline">
             {tFooter("bloodBankLink")}
           </a>
         </div>

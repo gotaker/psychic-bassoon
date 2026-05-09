@@ -51,12 +51,7 @@ export const Button = forwardRef<HTMLElement, ButtonProps>(function Button(props
   if ("href" in rest && rest.href) {
     const { href, ...anchorRest } = rest;
     return (
-      <a
-        ref={ref as React.Ref<HTMLAnchorElement>}
-        href={href}
-        className={classes}
-        {...anchorRest}
-      >
+      <a ref={ref as React.Ref<HTMLAnchorElement>} href={href} className={classes} {...anchorRest}>
         {children}
       </a>
     );

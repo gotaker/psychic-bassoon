@@ -50,7 +50,7 @@ export function LangToggle({ className }: { className?: string }) {
             disabled={pending}
             aria-pressed={active}
             className={cn(
-              "rounded-[var(--radius-pill)] px-3 py-1.5 text-[11.5px] font-medium leading-none",
+              "rounded-[var(--radius-pill)] px-3 py-1.5 text-[11.5px] leading-none font-medium",
               "transition-colors duration-150 ease-out",
               active
                 ? "bg-[color:var(--color-deep)] text-white"

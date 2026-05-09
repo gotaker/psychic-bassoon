@@ -1,4 +1,4 @@
-import { NewsItem } from "./types";
+import type { NewsItem } from "./types";
 
 // 3 sample stories — one institutional, one clinical, one community.
 // Adapted from prototype/i18n.js with PRODUCT.md-aligned facts.

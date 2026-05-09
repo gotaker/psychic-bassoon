@@ -42,11 +42,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function BloodBankPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
+export default async function BloodBankPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   const typedLocale: Locale = locale;
@@ -54,11 +50,7 @@ export default async function BloodBankPage({
 
   return (
     <>
-      <Script
-        id="ld-blood-bank"
-        type="application/ld+json"
-        strategy="beforeInteractive"
-      >
+      <Script id="ld-blood-bank" type="application/ld+json" strategy="beforeInteractive">
         {JSON.stringify(bloodBankServiceLD(typedLocale))}
       </Script>
       <SiteHeader locale={typedLocale} />

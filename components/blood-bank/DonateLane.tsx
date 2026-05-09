@@ -15,7 +15,7 @@ export function DonateLane({ locale, donate }: Props) {
   return (
     <section
       id="donate"
-      className="bg-white py-12 md:py-20 scroll-mt-[88px]"
+      className="scroll-mt-[88px] bg-white py-12 md:py-20"
       aria-labelledby="bb-donate-heading"
     >
       <div className="page-gutter mx-auto w-full max-w-[var(--content-max)]">
@@ -48,9 +48,7 @@ export function DonateLane({ locale, donate }: Props) {
               {donate.process.map((p) => (
                 <li key={p.id}>
                   <strong className="font-semibold">{p.step[locale]}.</strong>{" "}
-                  <span className="text-[color:var(--color-ink-soft)]">
-                    {p.detail[locale]}
-                  </span>
+                  <span className="text-[color:var(--color-ink-soft)]">{p.detail[locale]}</span>
                 </li>
               ))}
             </ol>
@@ -62,12 +60,7 @@ export function DonateLane({ locale, donate }: Props) {
           <p className="mt-2 text-[15px] text-[color:var(--color-ink)]">
             {donate.walkInHours[locale]}
           </p>
-          <Button
-            variant="primary"
-            size="lg"
-            href={`tel:${donate.phone}`}
-            className="mt-5"
-          >
+          <Button variant="primary" size="lg" href={`tel:${donate.phone}`} className="mt-5">
             {t("ctaCallDonor")}
           </Button>
         </div>
