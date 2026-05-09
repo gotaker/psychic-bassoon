@@ -15,6 +15,10 @@ export function PhotoStrip() {
               caption={t("captions.courtyard")}
               ratio="wide"
               radius="sm"
+              image={{
+                src: "/images/contextual/home-courtyard.jpg",
+                alt: "Hospital outpatient building exterior",
+              }}
             />
             <figcaption className="body-sm mt-2 text-[color:var(--color-ink-soft)]">
               {t("captions.courtyard")}
@@ -26,6 +30,10 @@ export function PhotoStrip() {
               caption={t("captions.cathLab")}
               ratio="square"
               radius="sm"
+              image={{
+                src: "/images/contextual/home-cath-lab.jpg",
+                alt: "Cardiac catheterization procedure",
+              }}
             />
             <figcaption className="body-sm mt-2 text-[color:var(--color-ink-soft)]">
               {t("captions.cathLab")}
@@ -37,6 +45,10 @@ export function PhotoStrip() {
               caption={t("captions.nicu")}
               ratio="square"
               radius="sm"
+              image={{
+                src: "/images/contextual/home-nicu.jpg",
+                alt: "Neonatal intensive care unit incubator",
+              }}
             />
             <figcaption className="body-sm mt-2 text-[color:var(--color-ink-soft)]">
               {t("captions.nicu")}

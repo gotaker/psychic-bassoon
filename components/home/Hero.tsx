@@ -39,6 +39,11 @@ export function Hero({ locale }: { locale: Locale }) {
               overlay={tHero("photoOverlay")}
               ratio="hero"
               radius="sm"
+              image={{
+                src: "/images/contextual/home-hero.jpg",
+                alt: "Hospital reception interior",
+                priority: true,
+              }}
             />
           }
         />

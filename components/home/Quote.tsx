@@ -6,7 +6,7 @@ export function Quote() {
   const t = useTranslations("home.quote");
   return (
     <section className="bg-[color:var(--color-paper-2)]">
-      <div className="page-gutter mx-auto w-full max-w-[var(--content-max)] section-y">
+      <div className="page-gutter section-y mx-auto w-full max-w-[var(--content-max)]">
         <EditorialSplit
           ratio="1.15-1"
           left={
@@ -35,6 +35,10 @@ export function Quote() {
               caption={t("photoCaption")}
               ratio="square"
               radius="sm"
+              image={{
+                src: "/images/contextual/home-quote.jpg",
+                alt: "Patient in a hospital ward",
+              }}
             />
           }
         />

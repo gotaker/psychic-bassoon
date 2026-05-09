@@ -9,7 +9,7 @@ export function FeaturedStory({ locale }: { locale: Locale }) {
   const t = useTranslations("home.featuredStory");
   return (
     <section className="bg-[color:var(--color-paper)]">
-      <div className="page-gutter mx-auto w-full max-w-[var(--content-max)] section-y">
+      <div className="page-gutter section-y mx-auto w-full max-w-[var(--content-max)]">
         <EditorialSplit
           ratio="1.15-1"
           left={
@@ -32,6 +32,10 @@ export function FeaturedStory({ locale }: { locale: Locale }) {
               caption={t("photoCaption")}
               ratio="hero"
               radius="sm"
+              image={{
+                src: "/images/contextual/home-featured.jpg",
+                alt: "Doctor examining a patient with a stethoscope",
+              }}
             />
           }
         />

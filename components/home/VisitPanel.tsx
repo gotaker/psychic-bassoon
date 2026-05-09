@@ -11,7 +11,7 @@ export function VisitPanel({ locale }: { locale: Locale }) {
   const t = useTranslations("home.visit");
   return (
     <section className="bg-[color:var(--color-paper-2)]">
-      <div className="page-gutter mx-auto w-full max-w-[var(--content-max)] section-y">
+      <div className="page-gutter section-y mx-auto w-full max-w-[var(--content-max)]">
         <EditorialSplit
           ratio="1-1"
           left={
@@ -20,6 +20,10 @@ export function VisitPanel({ locale }: { locale: Locale }) {
               caption={t("photoCaption")}
               ratio="hero"
               radius="sm"
+              image={{
+                src: "/images/contextual/home-visit.jpg",
+                alt: "Hospital reception and information desk",
+              }}
             />
           }
           right={

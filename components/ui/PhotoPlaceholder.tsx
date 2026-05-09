@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Image from "next/image";
 import { cn } from "@/lib/cn";
 
 export type PhotoTone = "mocha" | "slate" | "sand" | "sage" | "clay";
@@ -18,6 +19,11 @@ type PhotoPlaceholderProps = {
   ratio?: "tall" | "wide" | "square" | "hero";
   radius?: "sm" | "md" | "lg";
   className?: string;
+  // When provided, renders a real photo on top of the gradient (which becomes
+  // a backdrop while the image decodes). The gradient/caption styling stays
+  // identical so the layout is stable. Source files are CC-licensed Wikimedia
+  // Commons content under public/images/contextual/ — see ATTRIBUTIONS.md.
+  image?: { src: string; alt: string; priority?: boolean; objectPosition?: string };
 };
 
 const ratioClasses = {
@@ -33,9 +39,10 @@ const radiusClasses = {
   lg: "rounded-[var(--radius-lg)]",
 } as const;
 
-// Photographic surface placeholder (DESIGN.md §4.2). Until real photography
-// arrives, every photographic surface uses this. Five approved tones; never
-// invent new ones.
+// Photographic surface placeholder (DESIGN.md §4.2). When `image` is omitted,
+// renders the approved gradient + caption (the original placeholder); when
+// provided, the gradient acts as a tinted backdrop while a real CC-licensed
+// photo loads on top.
 export function PhotoPlaceholder({
   tone,
   caption,
@@ -43,10 +50,12 @@ export function PhotoPlaceholder({
   ratio = "tall",
   radius = "sm",
   className,
+  image,
 }: PhotoPlaceholderProps) {
+  const hasImage = Boolean(image);
   return (
     <figure
-      aria-hidden="true"
+      aria-hidden={hasImage ? undefined : "true"}
       className={cn(
         "relative w-full overflow-hidden",
         ratioClasses[ratio],
@@ -55,7 +64,23 @@ export function PhotoPlaceholder({
       )}
       style={{ background: gradients[tone] }}
     >
-      <span className="mono-tag absolute left-4 top-4 z-10 rounded-sm bg-black/30 px-2 py-1 text-white">
+      {image ? (
+        <Image
+          src={image.src}
+          alt={image.alt}
+          fill
+          {...(image.priority ? { priority: true } : {})}
+          sizes="(min-width: 1024px) 50vw, 100vw"
+          className="z-0 object-cover"
+          {...(image.objectPosition ? { style: { objectPosition: image.objectPosition } } : {})}
+        />
+      ) : null}
+      <span
+        className={cn(
+          "mono-tag absolute top-4 left-4 z-10 rounded-sm px-2 py-1 text-white",
+          hasImage ? "bg-black/45" : "bg-black/30",
+        )}
+      >
         {caption}
       </span>
       {overlay ? (
@@ -63,11 +88,10 @@ export function PhotoPlaceholder({
           <div
             className="absolute inset-0 z-0"
             style={{
-              background:
-                "linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 55%)",
+              background: "linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 55%)",
             }}
           />
-          <figcaption className="absolute bottom-5 left-5 right-5 z-10 max-w-[24ch] text-white">
+          <figcaption className="absolute right-5 bottom-5 left-5 z-10 max-w-[24ch] text-white">
             <span className="display-sm">{overlay}</span>
           </figcaption>
         </>

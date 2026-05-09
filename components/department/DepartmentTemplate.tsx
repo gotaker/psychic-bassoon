@@ -7,6 +7,7 @@ import { PhotoPlaceholder } from "@/components/ui/PhotoPlaceholder";
 import { CheckIcon, BackIcon } from "@/components/icons";
 import { DoctorCard } from "@/components/doctor/DoctorCard";
 import type { Locale } from "@/lib/locales";
+import { getDepartmentImage } from "@/lib/departmentImagery";
 
 type DepartmentTemplateProps = {
   locale: Locale;
@@ -41,10 +42,7 @@ export function DepartmentTemplate({
               <BackIcon size={12} /> {locale === "hi" ? "होम" : "Home"}
             </Link>
             <span aria-hidden="true">·</span>
-            <Link
-              href={`/${locale}/departments`}
-              className="hover:text-[color:var(--color-ink)]"
-            >
+            <Link href={`/${locale}/departments`} className="hover:text-[color:var(--color-ink)]">
               {locale === "hi" ? "विभाग" : "Departments"}
             </Link>
             <span aria-hidden="true">·</span>
@@ -82,14 +80,16 @@ export function DepartmentTemplate({
                   </div>
                 </>
               }
-              right={
-                detail ? (
+              right={(() => {
+                const heroImage = getDepartmentImage(department.slug);
+                return detail ? (
                   <PhotoPlaceholder
                     tone={detail.hero.photoTone}
                     caption={detail.hero.photoCaption[locale]}
                     overlay={detail.hero.photoOverlay[locale]}
                     ratio="hero"
                     radius="sm"
+                    image={{ ...heroImage, priority: true }}
                   />
                 ) : (
                   <PhotoPlaceholder
@@ -101,9 +101,10 @@ export function DepartmentTemplate({
                     }
                     ratio="hero"
                     radius="sm"
+                    image={heroImage}
                   />
-                )
-              }
+                );
+              })()}
             />
           </div>
         </div>
@@ -112,7 +113,7 @@ export function DepartmentTemplate({
       {/* Procedures (only if hasFullDetail) */}
       {detail ? (
         <section className="bg-[color:var(--color-paper)]">
-          <div className="page-gutter mx-auto w-full max-w-[var(--content-max)] section-y">
+          <div className="page-gutter section-y mx-auto w-full max-w-[var(--content-max)]">
             <header className="mb-8 flex flex-wrap items-end justify-between gap-x-8 gap-y-3">
               <div>
                 <Mono>{locale === "hi" ? "हमारा कार्य" : "WHAT WE DO"}</Mono>
@@ -136,7 +137,7 @@ export function DepartmentTemplate({
                   className="border-r border-b border-[color:var(--color-line-soft)] bg-white px-7 py-7"
                 >
                   <Mono className="block">{String(i + 1).padStart(2, "0")}</Mono>
-                  <h3 className="mt-3 text-[18px] font-semibold leading-tight tracking-[-0.005em]">
+                  <h3 className="mt-3 text-[18px] leading-tight font-semibold tracking-[-0.005em]">
                     {proc.title[locale]}
                   </h3>
                   <p
@@ -163,11 +164,8 @@ export function DepartmentTemplate({
 
       {/* Outcomes (only if hasFullDetail) */}
       {detail ? (
-        <section
-          data-tone="deep"
-          className="bg-[color:var(--color-deep)] text-white"
-        >
-          <div className="page-gutter mx-auto w-full max-w-[var(--content-max)] section-y">
+        <section data-tone="deep" className="bg-[color:var(--color-deep)] text-white">
+          <div className="page-gutter section-y mx-auto w-full max-w-[var(--content-max)]">
             <header className="mb-8 flex flex-wrap items-end justify-between gap-x-8 gap-y-3">
               <div>
                 <Mono className="text-[color:var(--color-accent)]">
@@ -190,11 +188,8 @@ export function DepartmentTemplate({
             </header>
             <ul className="grid grid-cols-1 border-t border-white/15 md:grid-cols-2 lg:grid-cols-4">
               {detail.outcomes.map((o) => (
-                <li
-                  key={o.id}
-                  className="border-r border-b border-white/15 px-6 py-7"
-                >
-                  <span className="meta uppercase tracking-[0.14em] text-white/60">
+                <li key={o.id} className="border-r border-b border-white/15 px-6 py-7">
+                  <span className="meta tracking-[0.14em] text-white/60 uppercase">
                     {o.kicker[locale]}
                   </span>
                   <p
@@ -204,7 +199,7 @@ export function DepartmentTemplate({
                     {o.value[locale]}
                   </p>
                   <p className="body-sm mt-4 text-white/85">{o.description[locale]}</p>
-                  <p className="meta mt-3 italic text-white/50">{o.benchmark[locale]}</p>
+                  <p className="meta mt-3 text-white/50 italic">{o.benchmark[locale]}</p>
                 </li>
               ))}
             </ul>
@@ -214,7 +209,7 @@ export function DepartmentTemplate({
 
       {/* Consultants */}
       <section className="bg-white">
-        <div className="page-gutter mx-auto w-full max-w-[var(--content-max)] section-y">
+        <div className="page-gutter section-y mx-auto w-full max-w-[var(--content-max)]">
           <Mono>
             {locale === "hi"
               ? `चिकित्सक — ${department.name.hi} में ${new Intl.NumberFormat("hi-IN-u-nu-deva").format(consultants.length)}`
@@ -258,7 +253,7 @@ export function DepartmentTemplate({
       {/* When to come (only if hasFullDetail) */}
       {detail ? (
         <section className="bg-[color:var(--color-paper-2)]">
-          <div className="page-gutter mx-auto w-full max-w-[var(--content-max)] section-y">
+          <div className="page-gutter section-y mx-auto w-full max-w-[var(--content-max)]">
             <EditorialSplit
               ratio="1-1"
               left={

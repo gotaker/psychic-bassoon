@@ -6,7 +6,7 @@ export function SiteFooter() {
   const tAcc = useTranslations("accreditations");
   return (
     <footer
-      className="border-t border-[color:var(--color-line-soft)] bg-[color:var(--color-paper-2)] pb-[calc(48px+96px)] pt-12 text-[color:var(--color-ink-soft)]"
+      className="border-t border-[color:var(--color-line-soft)] bg-[color:var(--color-paper-2)] pt-12 pb-[calc(48px+96px)] text-[color:var(--color-ink-soft)]"
       aria-labelledby="footer-heading"
     >
       <div className="page-gutter mx-auto w-full max-w-[var(--content-max)]">
@@ -26,7 +26,16 @@ export function SiteFooter() {
         </div>
         <div className="mt-6 flex flex-wrap justify-between gap-x-12 gap-y-2 text-[12px]">
           <span>{tFooter("copyright", { year: new Date().getFullYear() })}</span>
-          <span>{tFooter("address")}</span>
+          <span className="flex flex-wrap items-baseline gap-x-3">
+            <a
+              href="/images/contextual/ATTRIBUTIONS.md"
+              className="underline-offset-4 hover:underline"
+            >
+              {tFooter("imageCredits")}
+            </a>
+            <span aria-hidden="true">·</span>
+            <span>{tFooter("address")}</span>
+          </span>
         </div>
       </div>
     </footer>

@@ -39,6 +39,7 @@
   "footer": {
     "copyright": "© {year} Dev Nandini Hospital · NABH · NMC · NABL · ISO 15189",
     "address": "Hapur · Uttar Pradesh · India · +91 80 4422 0099",
+    "imageCredits": "Image credits",
     "sitemap": {
       "patients": "Patients",
       "physicians": "Referring physicians",
