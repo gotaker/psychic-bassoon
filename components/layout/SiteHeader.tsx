@@ -38,7 +38,7 @@ export function SiteHeader({ locale, variant = "solid" }: SiteHeaderProps) {
       <div className="page-gutter mx-auto flex h-[72px] w-full max-w-[var(--content-max)] items-center gap-8">
         <Link
           href={`/${locale}`}
-          className="flex items-center gap-3 text-[color:var(--color-deep)]"
+          className="flex flex-col items-start gap-1 text-[color:var(--color-deep)]"
           aria-label={tBrand("name")}
         >
           <Image

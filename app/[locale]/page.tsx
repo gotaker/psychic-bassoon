@@ -14,7 +14,7 @@ import { PhotoStrip } from "@/components/home/PhotoStrip";
 import { DepartmentsGrid } from "@/components/home/DepartmentsGrid";
 import { StatsBand } from "@/components/home/StatsBand";
 import { VisitPanel } from "@/components/home/VisitPanel";
-import { CollegeSplit } from "@/components/home/CollegeSplit";
+import { TrainingCentreSplit } from "@/components/home/TrainingCentreSplit";
 import { NewsGrid } from "@/components/home/NewsGrid";
 import { Quote } from "@/components/home/Quote";
 import { LocationsBand } from "@/components/home/LocationsBand";
@@ -72,7 +72,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: L
         <DepartmentsGrid locale={locale} />
         <StatsBand locale={locale} />
         <VisitPanel locale={locale} />
-        <CollegeSplit />
+        <TrainingCentreSplit />
         <NewsGrid locale={locale} />
         <Quote />
         <LocationsBand locale={locale} />

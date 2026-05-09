@@ -40,8 +40,8 @@ export function Hero({ locale }: { locale: Locale }) {
               ratio="hero"
               radius="sm"
               image={{
-                src: "/images/contextual/home-hero.jpg",
-                alt: "Hospital reception interior",
+                src: "/images/hospital/west-wing.webp",
+                alt: "Dev Nandini Hospital — west wing",
                 priority: true,
               }}
             />
