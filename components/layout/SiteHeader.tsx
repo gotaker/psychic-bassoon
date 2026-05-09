@@ -50,7 +50,7 @@ export function SiteHeader({ locale, variant = "solid" }: SiteHeaderProps) {
             className="h-10 w-auto flex-shrink-0"
             sizes="254px"
           />
-          <span className="mono-tag hidden text-[color:var(--color-ink-soft)] sm:inline">
+          <span className="mono-tag hidden ps-12 text-[color:var(--color-ink-soft)] sm:inline">
             {tBrand("established", { year: 1958 })}
           </span>
         </Link>
