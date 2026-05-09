@@ -4,6 +4,7 @@ import { SiteFooter } from "@/components/layout/SiteFooter";
 import { StickyCtaBar } from "@/components/layout/StickyCtaBar";
 import { PlaceholderPage } from "@/components/layout/PlaceholderPage";
 import { LeadershipGrid } from "@/components/about/LeadershipGrid";
+import { VisionMission } from "@/components/about/VisionMission";
 import type { Locale } from "@/lib/locales";
 
 export default async function AboutPage({ params }: { params: Promise<{ locale: Locale }> }) {
@@ -50,6 +51,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
         }}
         showCallCta={false}
       />
+      <VisionMission locale={locale} />
       <LeadershipGrid locale={locale} />
       <SiteFooter />
       <StickyCtaBar locale={locale} />
