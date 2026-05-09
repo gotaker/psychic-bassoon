@@ -17,14 +17,14 @@ export function DoctorCard({ doctor, locale }: DoctorCardProps) {
   const lastName = doctor.name.en.split(" ").slice(-1)[0] ?? doctor.name.en;
 
   return (
-    <article className="grid grid-cols-[84px_1fr] gap-6 rounded-[var(--radius-lg)] border border-[color:var(--color-line-soft)] bg-white p-6 transition-colors focus-within:border-[color:var(--color-deep)] hover:border-[color:var(--color-deep)]/40">
+    <article className="flex h-full min-h-[280px] gap-6 rounded-[var(--radius-lg)] border border-[color:var(--color-line-soft)] bg-white p-6 transition-colors focus-within:border-[color:var(--color-deep)] hover:border-[color:var(--color-deep)]/40">
       <DoctorAvatar
         initials={getInitials(doctor.name[locale])}
         tone={doctor.avatarTone as `#${string}`}
         size={84}
         {...(doctor.photo ? { photo: doctor.photo, alt: doctor.name[locale] } : {})}
       />
-      <div className="min-w-0">
+      <div className="flex min-w-0 flex-1 flex-col">
         <h3
           className="truncate text-[22px] font-medium leading-tight tracking-[-0.015em]"
           style={{ fontFamily: "var(--font-serif)" }}
@@ -36,7 +36,7 @@ export function DoctorCard({ doctor, locale }: DoctorCardProps) {
         </p>
         <p className="meta mt-2 text-[color:var(--color-ink-soft)]">{doctor.qualifications}</p>
         <p className="body-sm mt-3 text-[color:var(--color-ink-soft)]">{doctor.bio[locale]}</p>
-        <dl className="mt-4 flex flex-wrap gap-x-4 gap-y-1">
+        <dl className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1.5">
           <div className="flex items-center gap-1.5 text-[color:var(--color-ink-soft)]">
             <dt className="sr-only">{locale === "hi" ? "स्थान" : "Location"}</dt>
             <PinIcon size={12} />
@@ -49,15 +49,16 @@ export function DoctorCard({ doctor, locale }: DoctorCardProps) {
             </dd>
           </div>
         </dl>
-        <div className="mt-5 flex items-center justify-between gap-3 border-t border-[color:var(--color-line-soft)] pt-4">
-          <span className="meta inline-flex items-center gap-1.5 text-[color:var(--color-ink-soft)]">
-            <CalendarIcon size={13} />
-            {doctor.nextSlot[locale]}
+        <div className="mt-auto flex flex-wrap items-center justify-between gap-x-3 gap-y-3 border-t border-[color:var(--color-line-soft)] pt-4">
+          <span className="meta inline-flex items-start gap-1.5 text-[color:var(--color-ink-soft)]">
+            <CalendarIcon size={13} className="mt-0.5 flex-shrink-0" />
+            <span className="leading-snug">{doctor.nextSlot[locale]}</span>
           </span>
           <Button
             variant="primary"
             size="sm"
             href={`/${locale}/book?doctor=${doctor.id}`}
+            className="flex-shrink-0"
             aria-label={
               locale === "hi"
                 ? `डॉ. ${lastName} के साथ बुक करें`
