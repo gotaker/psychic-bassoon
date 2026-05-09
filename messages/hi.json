@@ -165,17 +165,17 @@
       "curriculumCta": "पाठ्यक्रम",
       "courses": {
         "basic": {
-          "value": "०७",
+          "value": "07",
           "label": "मूल बाँझपन प्रशिक्षण",
           "unit": "दिन"
         },
         "advanced": {
-          "value": "१४",
+          "value": "14",
           "label": "उन्नत बाँझपन प्रशिक्षण",
           "unit": "दिन"
         },
         "iui": {
-          "value": "०२",
+          "value": "02",
           "label": "IUI एवं उत्तेजना प्रोटोकॉल",
           "unit": "दिन"
         }

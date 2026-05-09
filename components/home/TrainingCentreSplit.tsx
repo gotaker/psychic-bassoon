@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import { EditorialSplit } from "@/components/layout/EditorialSplit";
 import { Mono } from "@/components/ui/Mono";
 import { Button } from "@/components/ui/Button";
+import { formatNumber } from "@/lib/formatters";
 import type { Locale } from "@/lib/locales";
 
 const COURSES = ["basic", "advanced", "iui"] as const;
@@ -43,7 +44,9 @@ export function TrainingCentreSplit({ locale }: { locale: Locale }) {
                         letterSpacing: "-0.025em",
                       }}
                     >
-                      {t(`courses.${c}.value`)}
+                      {formatNumber(Number(t(`courses.${c}.value`)), locale, {
+                        minimumIntegerDigits: 2,
+                      })}
                     </span>
                     <span className="meta mt-2 block tracking-[0.12em] text-[color:var(--color-ink-soft)] uppercase">
                       {t(`courses.${c}.unit`)}
