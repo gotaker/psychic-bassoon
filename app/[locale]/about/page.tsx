@@ -4,6 +4,7 @@ import { SiteFooter } from "@/components/layout/SiteFooter";
 import { StickyCtaBar } from "@/components/layout/StickyCtaBar";
 import { PlaceholderPage } from "@/components/layout/PlaceholderPage";
 import { LeadershipGrid } from "@/components/about/LeadershipGrid";
+import { VisionMission } from "@/components/about/VisionMission";
 import type { Locale } from "@/lib/locales";
 
 export default async function AboutPage({ params }: { params: Promise<{ locale: Locale }> }) {
@@ -37,19 +38,20 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
           hi: (
             <>
               <p>
-                देव नंदिनी अस्पताल की स्थापना १९५८ में हापुड़ में एक चिकित्सक ने एक रूपांतरित बंगले से
-                शुरू की थी। आज यह ५४० बिस्तरों का बहु-विशेषज्ञ अस्पताल है — २८ विशेषज्ञताओं में १८४
-                परामर्शदाता, संलग्न मेडिकल कॉलेज, सक्रिय अनुसंधान कार्यक्रम।
+                देव नंदिनी अस्पताल की स्थापना १९५८ में हापुड़ में एक चिकित्सक ने एक रूपांतरित बंगले
+                से शुरू की थी। आज यह ५४० बिस्तरों का बहु-विशेषज्ञ अस्पताल है — २८ विशेषज्ञताओं में
+                १८४ परामर्शदाता, संलग्न मेडिकल कॉलेज, सक्रिय अनुसंधान कार्यक्रम।
               </p>
               <p>
-                NABH, NABL, NMC, ISO 15189 मान्यता प्राप्त। नेतृत्व, इतिहास, वार्षिक रिपोर्ट लॉन्च के
-                बाद विस्तार से।
+                NABH, NABL, NMC, ISO 15189 मान्यता प्राप्त। नेतृत्व, इतिहास, वार्षिक रिपोर्ट लॉन्च
+                के बाद विस्तार से।
               </p>
             </>
           ),
         }}
         showCallCta={false}
       />
+      <VisionMission locale={locale} />
       <LeadershipGrid locale={locale} />
       <SiteFooter />
       <StickyCtaBar locale={locale} />

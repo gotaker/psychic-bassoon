@@ -28,7 +28,7 @@ export function SiteFooter() {
           <span>{tFooter("copyright", { year: new Date().getFullYear() })}</span>
           <span className="flex flex-wrap items-baseline gap-x-3">
             <a
-              href="/images/contextual/ATTRIBUTIONS.md"
+              href="/images/hospital/ATTRIBUTIONS.md"
               className="underline-offset-4 hover:underline"
             >
               {tFooter("imageCredits")}

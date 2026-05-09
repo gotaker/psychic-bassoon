@@ -1,0 +1,101 @@
+[
+  {
+    "key": "west-wing",
+    "file": "west-wing.webp",
+    "subject": "Hospital exterior — west wing at dawn",
+    "source": "DNH",
+    "source_url": "",
+    "license": "All rights reserved — Dev Nandini Hospital, Hapur",
+    "license_url": ""
+  },
+  {
+    "key": "opd-station",
+    "file": "opd-station.jpg",
+    "subject": "General OPD nursing station with the duty team",
+    "source": "DNH (dnhhapur.com)",
+    "source_url": "https://dnhhapur.com/wp-content/uploads/2024/02/IMG_8767-Copy.jpg",
+    "license": "All rights reserved — Dev Nandini Hospital, Hapur",
+    "license_url": ""
+  },
+  {
+    "key": "laparoscopy",
+    "file": "laparoscopy.jpg",
+    "subject": "Laparoscopic surgery in the operating theatre",
+    "source": "DNH (dnhhapur.com)",
+    "source_url": "https://dnhhapur.com/wp-content/uploads/2024/02/ot-12.jpg",
+    "license": "All rights reserved — Dev Nandini Hospital, Hapur",
+    "license_url": ""
+  },
+  {
+    "key": "nicu",
+    "file": "nicu.jpg",
+    "subject": "NICU incubator and monitoring equipment",
+    "source": "DNH (dnhhapur.com)",
+    "source_url": "https://dnhhapur.com/wp-content/uploads/2024/02/nicu-2.jpg",
+    "license": "All rights reserved — Dev Nandini Hospital, Hapur",
+    "license_url": ""
+  },
+  {
+    "key": "nicu-warmers",
+    "file": "nicu-warmers.jpg",
+    "subject": "NICU baby warmers in the neonatal unit",
+    "source": "DNH (dnhhapur.com)",
+    "source_url": "https://dnhhapur.com/wp-content/uploads/2024/02/nicu-3.jpg",
+    "license": "All rights reserved — Dev Nandini Hospital, Hapur",
+    "license_url": ""
+  },
+  {
+    "key": "nicu-team",
+    "file": "nicu-team.jpg",
+    "subject": "NICU clinical team caring for newborns",
+    "source": "DNH (dnhhapur.com)",
+    "source_url": "https://dnhhapur.com/wp-content/uploads/2024/02/1.jpg",
+    "license": "All rights reserved — Dev Nandini Hospital, Hapur",
+    "license_url": ""
+  },
+  {
+    "key": "reception",
+    "file": "reception.jpg",
+    "subject": "Test Tube Baby Centre reception and waiting area",
+    "source": "DNH (dnhhapur.com)",
+    "source_url": "https://dnhhapur.com/wp-content/uploads/2024/02/1537175084_devnandini-5.jpg",
+    "license": "All rights reserved — Dev Nandini Hospital, Hapur",
+    "license_url": ""
+  },
+  {
+    "key": "surgery-team",
+    "file": "surgery-team.jpg",
+    "subject": "Surgical team in the operating theatre",
+    "source": "DNH (dnhhapur.com)",
+    "source_url": "https://dnhhapur.com/wp-content/uploads/2024/02/ot-1.jpg",
+    "license": "All rights reserved — Dev Nandini Hospital, Hapur",
+    "license_url": ""
+  },
+  {
+    "key": "ct-scanner",
+    "file": "ct-scanner.jpg",
+    "subject": "CT scanner in the radiology department",
+    "source": "DNH (dnhhapur.com)",
+    "source_url": "https://dnhhapur.com/wp-content/uploads/2024/02/ecg-4.jpg",
+    "license": "All rights reserved — Dev Nandini Hospital, Hapur",
+    "license_url": ""
+  },
+  {
+    "key": "eye-exam",
+    "file": "eye-exam.jpg",
+    "subject": "Slit-lamp eye examination",
+    "source": "DNH (dnhhapur.com)",
+    "source_url": "https://dnhhapur.com/wp-content/uploads/2024/02/723117050_DSC_0878.jpg",
+    "license": "All rights reserved — Dev Nandini Hospital, Hapur",
+    "license_url": ""
+  },
+  {
+    "key": "pathology-lab",
+    "file": "pathology-lab.jpg",
+    "subject": "Pathology laboratory bench",
+    "source": "DNH (dnhhapur.com)",
+    "source_url": "https://dnhhapur.com/wp-content/uploads/2024/02/IMG_8712-Copy.jpg",
+    "license": "All rights reserved — Dev Nandini Hospital, Hapur",
+    "license_url": ""
+  }
+]
