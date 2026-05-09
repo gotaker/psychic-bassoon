@@ -41,6 +41,14 @@ export function BloodBankHero({ locale, hero }: Props) {
               overlay={hero.photoOverlay[locale]}
               ratio="hero"
               radius="sm"
+              image={{
+                src: "/images/hospital/pathology-lab.jpg",
+                alt:
+                  locale === "hi"
+                    ? "देव नंदिनी अस्पताल का पैथोलॉजी प्रयोगशाला कार्यबेंच"
+                    : "Pathology laboratory bench at Dev Nandini Hospital",
+                priority: true,
+              }}
             />
           }
         />
