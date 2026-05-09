@@ -1,6 +1,5 @@
 // FOGSI-recognised infertility training programme — typed seed data.
-// Source: FOGSI Infertility Training Course syllabus PDF (Feb 2024 revision)
-// hosted at /training/fogsi-infertility-syllabus.pdf.
+// Source: FOGSI Infertility Training Course syllabus (Feb 2024 revision).
 //
 // Day-by-day medical content is in English in both locales because FOGSI
 // training is conducted in English; translating clinical terms risks
@@ -26,8 +25,6 @@ export type TrainingCourse = {
   days: readonly SyllabusDay[];
 };
 
-export const TRAINING_APPLICATION_PDF = "/training/fogsi-application-form.pdf";
-export const TRAINING_SYLLABUS_PDF = "/training/fogsi-infertility-syllabus.pdf";
 export const TRAINING_ENQUIRY_EMAIL = "devnandiniivf@gmail.com";
 
 const BASIC_DAYS: readonly SyllabusDay[] = [

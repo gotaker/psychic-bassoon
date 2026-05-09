@@ -7,11 +7,7 @@ import { SiteFooter } from "@/components/layout/SiteFooter";
 import { StickyCtaBar } from "@/components/layout/StickyCtaBar";
 import { Button } from "@/components/ui/Button";
 import { Mono } from "@/components/ui/Mono";
-import {
-  TRAINING_APPLICATION_PDF,
-  TRAINING_COURSES,
-  TRAINING_ENQUIRY_EMAIL,
-} from "@/content/training";
+import { TRAINING_COURSES, TRAINING_ENQUIRY_EMAIL } from "@/content/training";
 import type { Locale } from "@/lib/locales";
 
 export async function generateMetadata({
@@ -73,13 +69,7 @@ function ApplyMain({ locale }: { locale: Locale }) {
           <p className="lede mt-6 max-w-[60ch]">{t("apply.lede")}</p>
         </div>
         <div className="mt-8 flex flex-wrap gap-3">
-          <Button
-            variant="primary"
-            size="md"
-            href={TRAINING_APPLICATION_PDF}
-            target="_blank"
-            rel="noopener"
-          >
+          <Button variant="primary" size="md" href={`/${locale}/training/apply/form`}>
             {t("apply.downloadCta")}
           </Button>
           <Button variant="ghost" size="md" href={`/${locale}/training/curriculum`}>
@@ -160,13 +150,7 @@ function ApplyMain({ locale }: { locale: Locale }) {
             ))}
           </ol>
           <div className="mt-10">
-            <Button
-              variant="primary"
-              size="md"
-              href={TRAINING_APPLICATION_PDF}
-              target="_blank"
-              rel="noopener"
-            >
+            <Button variant="primary" size="md" href={`/${locale}/training/apply/form`}>
               {t("apply.downloadCta")}
             </Button>
           </div>

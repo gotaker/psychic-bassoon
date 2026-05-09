@@ -7,11 +7,7 @@ import { SiteFooter } from "@/components/layout/SiteFooter";
 import { StickyCtaBar } from "@/components/layout/StickyCtaBar";
 import { Button } from "@/components/ui/Button";
 import { Mono } from "@/components/ui/Mono";
-import {
-  TRAINING_COURSES,
-  TRAINING_SYLLABUS_PDF,
-  type TrainingCourseRecord,
-} from "@/content/training";
+import { TRAINING_COURSES, type TrainingCourseRecord } from "@/content/training";
 import type { Locale } from "@/lib/locales";
 
 export async function generateMetadata({
@@ -70,16 +66,7 @@ function CurriculumMain({ locale }: { locale: Locale }) {
           <p className="lede mt-6 max-w-[60ch]">{t("curriculum.lede")}</p>
         </div>
         <div className="mt-8 flex flex-wrap gap-3">
-          <Button
-            variant="primary"
-            size="md"
-            href={TRAINING_SYLLABUS_PDF}
-            target="_blank"
-            rel="noopener"
-          >
-            {t("curriculum.downloadCta")}
-          </Button>
-          <Button variant="ghost" size="md" href={`/${locale}/training/apply`}>
+          <Button variant="primary" size="md" href={`/${locale}/training/apply`}>
             {t("curriculum.applyCta")}
           </Button>
         </div>
