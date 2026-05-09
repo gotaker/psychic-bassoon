@@ -174,7 +174,7 @@ function ApplyMain({ locale }: { locale: Locale }) {
       </section>
 
       <section className="border-t border-[color:var(--color-line-soft)] bg-[color:var(--color-deep)] text-white">
-        <div className="page-gutter section-y mx-auto w-full max-w-[var(--content-max)]">
+        <div className="page-gutter section-y mx-auto flex w-full max-w-[var(--content-max)] flex-col">
           <div className="grid grid-cols-1 gap-10 md:grid-cols-[1fr_1.4fr] md:gap-16">
             <div>
               <Mono>{t("apply.enquireKicker")}</Mono>
@@ -190,15 +190,12 @@ function ApplyMain({ locale }: { locale: Locale }) {
               </a>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="border-t border-[color:var(--color-line-soft)] bg-[color:var(--color-paper)]">
-        <div className="page-gutter section-y mx-auto w-full max-w-[var(--content-max)]">
-          <Mono>{t("apply.disclaimerKicker")}</Mono>
-          <p className="body-sm mt-4 max-w-[80ch] text-[color:var(--color-ink-soft)]">
-            {t("apply.disclaimer")}
-          </p>
+          <div className="mt-16 border-t border-white/15 pt-8 md:mt-24">
+            <Mono>{t("apply.disclaimerKicker")}</Mono>
+            <p className="body-sm mt-4 max-w-[80ch] text-white/65">
+              {t("apply.disclaimer")}
+            </p>
+          </div>
         </div>
       </section>
     </main>
