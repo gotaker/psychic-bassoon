@@ -1,6 +1,8 @@
 import { Location } from "./types";
 
 // Three locations per PRODUCT.md §6 visit panel + §10 ops constraints.
+// `mapsQuery` is optional and used by LocationsBand to embed Google Maps.
+// Tune queries here when Google geocodes a raw address ambiguously.
 
 export const locations = [
   {
@@ -12,6 +14,7 @@ export const locations = [
     },
     phone: "+91 80 4422 0099",
     hours: { en: "OPD · Mon–Sat 08:00–20:00", hi: "ओपीडी · सोम–शनि ०८:००–२०:००" },
+    mapsQuery: "Dev Nandini Hospital, NH-9 Hapur Bypass, Hapur, Uttar Pradesh",
   },
   {
     id: "annexe",
@@ -22,6 +25,7 @@ export const locations = [
     },
     phone: "+91 80 4422 0150",
     hours: { en: "OPD · Mon–Sat 08:00–18:00", hi: "ओपीडी · सोम–शनि ०८:००–१८:००" },
+    mapsQuery: "Dev Nandini Hospital Annexe, Garh Road, Sector 6, Hapur, Uttar Pradesh",
   },
   {
     id: "cancer-wing",
@@ -32,5 +36,6 @@ export const locations = [
     },
     phone: "+91 80 4422 0210",
     hours: { en: "OPD · Mon–Fri 09:00–17:00", hi: "ओपीडी · सोम–शुक्र ०९:००–१७:००" },
+    mapsQuery: "Dev Nandini Hospital Cancer Wing, Block C, Hapur, Uttar Pradesh",
   },
 ] as const satisfies readonly Location[];

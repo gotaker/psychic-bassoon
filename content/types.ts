@@ -104,5 +104,8 @@ export const Location = z.object({
   address: LocalisedString,
   phone: z.string().regex(/^\+\d[\d\s-]+$/),
   hours: LocalisedString,
+  // Optional explicit Google Maps query — falls back to address.en when absent.
+  // Use this when the address alone resolves ambiguously on Google.
+  mapsQuery: z.string().min(1).optional(),
 });
 export type Location = z.infer<typeof Location>;

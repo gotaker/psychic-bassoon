@@ -1,8 +1,19 @@
 import { useTranslations } from "next-intl";
 import { Mono } from "@/components/ui/Mono";
-import { PinIcon, PhoneIcon } from "@/components/icons";
+import { PinIcon, PhoneIcon, ArrowIcon } from "@/components/icons";
 import { locations } from "@/content/locations";
+import type { Location } from "@/content/types";
 import type { Locale } from "@/lib/locales";
+
+function mapsEmbedUrl(loc: Location, locale: Locale): string {
+  const query = encodeURIComponent(loc.mapsQuery ?? loc.address.en);
+  return `https://maps.google.com/maps?q=${query}&hl=${locale}&z=15&output=embed`;
+}
+
+function mapsLinkUrl(loc: Location): string {
+  const query = encodeURIComponent(loc.mapsQuery ?? loc.address.en);
+  return `https://www.google.com/maps/search/?api=1&query=${query}`;
+}
 
 export function LocationsBand({ locale }: { locale: Locale }) {
   const t = useTranslations("home.locations");
@@ -11,20 +22,29 @@ export function LocationsBand({ locale }: { locale: Locale }) {
       <div className="page-gutter mx-auto w-full max-w-[var(--content-max)] section-y">
         <Mono>{t("kicker")}</Mono>
         <h2 className="display-md mt-3 max-w-[20ch]">{t("title")}</h2>
-        <ul className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-3">
+        <ul className="mt-10 grid grid-cols-1 gap-10 md:grid-cols-3">
           {locations.map((loc) => (
-            <li key={loc.id}>
+            <li key={loc.id} className="flex flex-col">
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[var(--radius-md)] border border-[color:var(--color-line-soft)] bg-[color:var(--color-paper-2)]">
+                <iframe
+                  src={mapsEmbedUrl(loc, locale)}
+                  title={`${loc.name[locale]} — ${locale === "hi" ? "मानचित्र" : "map"}`}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="absolute inset-0 h-full w-full border-0"
+                />
+              </div>
               <h3
-                className="text-[22px] font-medium leading-tight tracking-[-0.015em]"
+                className="mt-5 text-[22px] font-medium leading-tight tracking-[-0.015em]"
                 style={{ fontFamily: "var(--font-serif)" }}
               >
                 {loc.name[locale]}
               </h3>
               <p className="body-sm mt-3 flex items-start gap-2 text-[color:var(--color-ink-soft)]">
-                <span className="mt-0.5 text-[color:var(--color-ink-soft)]">
+                <span className="mt-0.5 flex-shrink-0 text-[color:var(--color-ink-soft)]">
                   <PinIcon size={14} />
                 </span>
-                {loc.address[locale]}
+                <span>{loc.address[locale]}</span>
               </p>
               <p className="body-sm mt-2 flex items-center gap-2 text-[color:var(--color-ink-soft)]">
                 <span className="text-[color:var(--color-ink-soft)]">
@@ -38,6 +58,20 @@ export function LocationsBand({ locale }: { locale: Locale }) {
                 </a>
               </p>
               <p className="body-sm mt-2 text-[color:var(--color-ink-soft)]">{loc.hours[locale]}</p>
+              <a
+                href={mapsLinkUrl(loc)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="meta mt-4 inline-flex items-center gap-1.5 self-start text-[color:var(--color-primary)] underline-offset-4 hover:underline"
+                aria-label={
+                  locale === "hi"
+                    ? `${loc.name.hi} के लिए दिशा-निर्देश — Google Maps में खुलेगा`
+                    : `Get directions to ${loc.name.en} — opens in Google Maps`
+                }
+              >
+                {locale === "hi" ? "दिशा-निर्देश" : "Get directions"}
+                <ArrowIcon size={12} />
+              </a>
             </li>
           ))}
         </ul>
