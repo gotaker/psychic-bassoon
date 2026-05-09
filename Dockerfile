@@ -28,15 +28,7 @@ ENV NEXT_TELEMETRY_DISABLED=1
 
 COPY --from=deps /app/node_modules ./node_modules
 
-# Source comes from an npm-pack tarball produced before `docker build`
-# (run `pnpm pack` or `npm pack` in the repo root). .npmignore filters
-# dev-only files. The tarball wraps contents in a `package/` dir, which
-# --strip-components=1 removes. pnpm-lock.yaml is hard-excluded by
-# npm-packlist and is not needed here — `pnpm build` uses node_modules
-# from the deps stage, not the lockfile.
-COPY dnh-website-*.tgz ./
-RUN tar -xzf dnh-website-*.tgz --strip-components=1 \
- && rm dnh-website-*.tgz
+COPY . .
 
 RUN pnpm build
 
