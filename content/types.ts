@@ -41,6 +41,10 @@ export const Department = z.object({
   name: LocalisedString,
   tagline: LocalisedString,
   hasFullDetail: z.boolean(),
+  // When set, the department detail page renders a single "Visit our X" CTA
+  // pointing here. Used for departments that have a richer top-level public
+  // surface (e.g. /blood-bank).
+  richPageHref: z.string().regex(/^\/(?:en|hi)\/[a-z0-9-/]+$/).optional(),
 });
 export type Department = z.infer<typeof Department>;
 
@@ -109,3 +113,71 @@ export const Location = z.object({
   mapsQuery: z.string().min(1).optional(),
 });
 export type Location = z.infer<typeof Location>;
+
+// ----- Blood Bank -----
+// The phone regex matches the rest of the project (Location.phone): "+" then
+// digits/spaces/dashes. Strict E.164 is intentionally relaxed across the
+// codebase to permit human-readable rendering.
+const PhoneE164Relaxed = z.string().regex(/^\+\d[\d\s-]+$/);
+
+export const BloodBankFaqItem = z.object({
+  id: z.string().regex(/^[a-z][a-z0-9-]*$/),
+  q: LocalisedString,
+  a: LocalisedString,
+});
+export type BloodBankFaqItem = z.infer<typeof BloodBankFaqItem>;
+
+export const BloodBankContent = z.object({
+  hero: z.object({
+    eyebrow: LocalisedString,
+    headline: LocalisedString,
+    sub: LocalisedString,
+    photoCaption: LocalisedString,
+    photoOverlay: LocalisedString,
+    photoTone: z.enum(["mocha", "slate", "sand", "sage", "clay"]),
+  }),
+  accreditations: z.array(z.enum(["nabh", "nabl", "iso15189"])).min(1),
+  services: z.array(
+    z.object({
+      id: z.string().regex(/^[a-z][a-z0-9-]*$/),
+      label: LocalisedString,
+      note: LocalisedString.optional(),
+    }),
+  ).min(1),
+  donate: z.object({
+    eligibility: z.array(
+      z.object({
+        id: z.string().regex(/^[a-z][a-z0-9-]*$/),
+        rule: LocalisedString,
+      }),
+    ).min(3),
+    process: z.array(
+      z.object({
+        id: z.string().regex(/^[a-z][a-z0-9-]*$/),
+        step: LocalisedString,
+        detail: LocalisedString,
+      }),
+    ).min(2),
+    walkInHours: LocalisedString,
+    phone: PhoneE164Relaxed,
+  }),
+  request: z.object({
+    replacementPolicy: LocalisedString,
+    whatToBring: z.array(
+      z.object({
+        id: z.string().regex(/^[a-z][a-z0-9-]*$/),
+        item: LocalisedString,
+      }),
+    ).min(2),
+    hours: LocalisedString,
+    phone: PhoneE164Relaxed,
+  }),
+  faq: z.array(BloodBankFaqItem).min(1),
+  contact: z.object({
+    addressLine: LocalisedString,
+    inHospitalLocation: LocalisedString,
+    phone: PhoneE164Relaxed,
+    email: z.string().email().optional(),
+  }),
+});
+export type BloodBankContent = z.infer<typeof BloodBankContent>;

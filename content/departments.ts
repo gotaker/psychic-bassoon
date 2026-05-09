@@ -251,6 +251,17 @@ export const departments = [
     },
     hasFullDetail: false,
   },
+  {
+    slug: "blood-bank",
+    name: { en: "Blood Bank", hi: "रक्त बैंक" },
+    tagline: {
+      en: "Donate. Or arrange blood for a patient.",
+      hi: "रक्तदान करें। या रोगी के लिए रक्त की व्यवस्था करें।",
+    },
+    hasFullDetail: false,
+    // Routes the dept stub's CTA to the rich /blood-bank surface.
+    richPageHref: "/en/blood-bank", // canonical entry; template swaps locale at render time
+  },
 ] as const satisfies readonly Department[];
 
 export const departmentsBySlug: Record<string, Department> = Object.fromEntries(
