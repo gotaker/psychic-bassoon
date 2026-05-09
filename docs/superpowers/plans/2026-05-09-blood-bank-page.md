@@ -98,9 +98,12 @@ export default defineConfig({
   ],
   webServer: {
     command: process.env.CI ? "pnpm build && pnpm start" : "pnpm dev",
-    url: BASE_URL,
+    // Probe a locale-prefixed route directly. The site redirects `/` to
+    // `/en` via middleware, and on Next 16 dev the middleware redirect
+    // can cause Playwright's readiness probe to fail to detect the server.
+    url: `${BASE_URL}/en`,
     reuseExistingServer: !process.env.CI,
-    timeout: 120_000,
+    timeout: 180_000,
   },
 });
 ```
