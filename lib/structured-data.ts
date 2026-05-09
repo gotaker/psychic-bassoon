@@ -80,3 +80,25 @@ export function jsonLdScript(value: unknown): string {
   // Sanitize against `</script>` close-tag injection; this is the standard guard.
   return JSON.stringify(value).replace(/</g, "\\u003c");
 }
+
+// MedicalBusiness representation of the on-site blood bank.
+export function bloodBankServiceLD(locale: Locale) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "@id": `${SITE_URL}/${locale}/blood-bank#service`,
+    name: locale === "hi" ? "रक्त बैंक" : "Blood Bank",
+    parentOrganization: { "@id": `${SITE_URL}/${locale}/#hospital` },
+    medicalSpecialty: "Hematologic",
+    availableService: [
+      "Whole blood collection",
+      "Packed red cell preparation",
+      "Fresh frozen plasma",
+      "Platelet concentrate",
+      "Cross-match and screening",
+      "Component separation",
+    ],
+    accreditation: ["NABH", "NABL", "ISO 15189"],
+    url: `${SITE_URL}/${locale}/blood-bank`,
+  } as const;
+}
