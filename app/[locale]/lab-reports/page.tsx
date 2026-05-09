@@ -44,7 +44,7 @@ export default async function LabReportsPage({
           ),
         }}
       />
-      <SiteFooter />
+      <SiteFooter locale={locale} />
       <StickyCtaBar locale={locale} />
     </>
   );

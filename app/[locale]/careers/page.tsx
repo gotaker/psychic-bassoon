@@ -40,7 +40,7 @@ export default async function CareersPage({ params }: { params: Promise<{ locale
           ),
         }}
       />
-      <SiteFooter />
+      <SiteFooter locale={locale} />
       <StickyCtaBar locale={locale} />
     </>
   );

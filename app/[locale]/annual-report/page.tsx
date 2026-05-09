@@ -46,7 +46,7 @@ export default async function AnnualReportPage({
           ),
         }}
       />
-      <SiteFooter />
+      <SiteFooter locale={locale} />
       <StickyCtaBar locale={locale} />
     </>
   );

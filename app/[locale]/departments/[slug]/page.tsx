@@ -70,7 +70,7 @@ export default async function DepartmentDetailPage({
         consultants={consultants}
         index={index}
       />
-      <SiteFooter />
+      <SiteFooter locale={locale} />
       <StickyCtaBar locale={locale} />
     </>
   );

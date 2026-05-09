@@ -70,7 +70,7 @@ export default async function VisitPage({
           ),
         }}
       />
-      <SiteFooter />
+      <SiteFooter locale={locale} />
       <StickyCtaBar locale={locale} />
     </>
   );

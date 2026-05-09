@@ -44,7 +44,7 @@ export default async function NewsPage({ params }: { params: Promise<{ locale: L
           </ul>
         </section>
       </main>
-      <SiteFooter />
+      <SiteFooter locale={locale} />
       <StickyCtaBar locale={locale} />
     </>
   );

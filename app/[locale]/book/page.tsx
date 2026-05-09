@@ -73,7 +73,7 @@ export default async function BookPage({
           {...(initialDoctorId ? { initialDoctorId } : {})}
         />
       </main>
-      <SiteFooter />
+      <SiteFooter locale={locale} />
     </>
   );
 }

@@ -42,7 +42,7 @@ export default async function ApplyPage({ params }: { params: Promise<{ locale: 
     <>
       <SiteHeader locale={locale} />
       <ApplyMain locale={locale} />
-      <SiteFooter />
+      <SiteFooter locale={locale} />
       <StickyCtaBar locale={locale} />
     </>
   );

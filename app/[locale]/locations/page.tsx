@@ -28,7 +28,7 @@ export default async function LocationsPage({
         </section>
         <LocationsBand locale={locale} />
       </main>
-      <SiteFooter />
+      <SiteFooter locale={locale} />
       <StickyCtaBar locale={locale} />
     </>
   );

@@ -35,7 +35,7 @@ export default async function DepartmentsIndexPage({
         </section>
         <DepartmentsGrid locale={locale} />
       </main>
-      <SiteFooter />
+      <SiteFooter locale={locale} />
       <StickyCtaBar locale={locale} />
     </>
   );

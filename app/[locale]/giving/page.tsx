@@ -42,7 +42,7 @@ export default async function GivingPage({ params }: { params: Promise<{ locale:
           ),
         }}
       />
-      <SiteFooter />
+      <SiteFooter locale={locale} />
       <StickyCtaBar locale={locale} />
     </>
   );

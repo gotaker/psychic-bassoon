@@ -155,7 +155,7 @@ export default async function FindADoctorPage({
           </div>
         </section>
       </main>
-      <SiteFooter />
+      <SiteFooter locale={locale} />
       <StickyCtaBar locale={locale} />
     </>
   );

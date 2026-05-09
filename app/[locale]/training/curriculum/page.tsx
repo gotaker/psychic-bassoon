@@ -42,7 +42,7 @@ export default async function CurriculumPage({ params }: { params: Promise<{ loc
     <>
       <SiteHeader locale={locale} />
       <CurriculumMain locale={locale} />
-      <SiteFooter />
+      <SiteFooter locale={locale} />
       <StickyCtaBar locale={locale} />
     </>
   );

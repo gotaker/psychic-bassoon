@@ -71,7 +71,7 @@ export default async function BloodBankPage({
         <FAQ locale={typedLocale} items={bloodBank.faq} />
         <BloodBankContact locale={typedLocale} contact={bloodBank.contact} />
       </main>
-      <SiteFooter />
+      <SiteFooter locale={locale} />
       <StickyCtaBar locale={typedLocale} />
     </>
   );
