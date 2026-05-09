@@ -7,6 +7,9 @@ node_modules/
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
+# This is a pnpm project — guard against npm/yarn lockfiles being added by mistake.
+package-lock.json
+yarn.lock
 
 # Next.js
 .next/
