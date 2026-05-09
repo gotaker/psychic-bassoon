@@ -10,8 +10,13 @@ WORKDIR /app
 # Enable pnpm via corepack (matches package.json packageManager pin).
 RUN corepack enable && corepack prepare pnpm@10.33.2 --activate
 
+# Railway's Metal builder requires cache-mount ids to carry an "s/<service-id>-"
+# prefix. RAILWAY_SERVICE_ID is injected as a build arg on Railway; defaults to
+# "local" off-platform so the same Dockerfile builds locally.
+ARG RAILWAY_SERVICE_ID=local
+
 COPY package.json pnpm-lock.yaml ./
-RUN --mount=type=cache,target=/root/.local/share/pnpm/store \
+RUN --mount=type=cache,id=s/${RAILWAY_SERVICE_ID}-pnpm,target=/root/.local/share/pnpm/store \
     pnpm install --frozen-lockfile
 
 # ---- builder ----
