@@ -38,28 +38,20 @@ export function SiteHeader({ locale, variant = "solid" }: SiteHeaderProps) {
       <div className="page-gutter mx-auto flex h-[72px] w-full max-w-[var(--content-max)] items-center gap-8">
         <Link
           href={`/${locale}`}
-          className="flex items-center gap-3.5 text-[color:var(--color-deep)]"
+          className="flex items-center gap-3 text-[color:var(--color-deep)]"
           aria-label={tBrand("name")}
         >
           <Image
             src="/brand/dnh-logo.png"
-            alt=""
-            width={40}
-            height={40}
+            alt={tBrand("name")}
+            width={450}
+            height={71}
             priority
-            className="h-10 w-10 flex-shrink-0 object-contain"
-            sizes="40px"
+            className="h-10 w-auto flex-shrink-0"
+            sizes="254px"
           />
-          <span className="leading-tight">
-            <span
-              className="block text-[18px] font-medium tracking-[-0.01em]"
-              style={{ fontFamily: "var(--font-serif)" }}
-            >
-              {tBrand("name")}
-            </span>
-            <span className="mono-tag mt-0.5 block text-[color:var(--color-ink-soft)]">
-              {tBrand("established", { year: 1958 })}
-            </span>
+          <span className="mono-tag hidden text-[color:var(--color-ink-soft)] sm:inline">
+            {tBrand("established", { year: 1958 })}
           </span>
         </Link>
         <nav className="ml-2 hidden items-center gap-7 md:flex" aria-label="Primary">
