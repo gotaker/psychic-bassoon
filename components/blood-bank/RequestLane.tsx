@@ -19,7 +19,7 @@ export function RequestLane({ locale, request }: Props) {
       aria-labelledby="bb-request-heading"
     >
       <div className="page-gutter mx-auto w-full max-w-[var(--content-max)]">
-        <Mono>{t("sectionRequest")}</Mono>
+        <Mono className="text-[color:var(--color-ink)]">{t("sectionRequest")}</Mono>
         <h2
           id="bb-request-heading"
           className="display-md mt-3 max-w-[24ch] text-[color:var(--color-deep)]"
