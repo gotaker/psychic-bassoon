@@ -1,0 +1,9 @@
+prototype/
+.next/
+node_modules/
+out/
+build/
+dist/
+public/fonts/
+pnpm-lock.yaml
+*.md

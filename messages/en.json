@@ -1,0 +1,169 @@
+{
+  "brand": {
+    "name": "Dev Nandini Hospital",
+    "tagline": "Hospital · Medical College · Research",
+    "established": "EST. {year} · HAPUR"
+  },
+  "nav": {
+    "home": "Home",
+    "findDoctor": "Find a doctor",
+    "departments": "Departments",
+    "visit": "Visit",
+    "about": "About",
+    "news": "News"
+  },
+  "cta": {
+    "book": "Book appointment",
+    "bookShort": "Book",
+    "findDoctor": "Find a doctor",
+    "continue": "Continue",
+    "back": "Back",
+    "viewAll": "View all",
+    "learnMore": "Learn more",
+    "callFrontDesk": "Call front desk",
+    "openInNewWindow": "Opens in a new window"
+  },
+  "lang": {
+    "en": "EN",
+    "hi": "हिंदी",
+    "switchTo": "Switch to {lang}"
+  },
+  "emergency": {
+    "label": "Emergency",
+    "fullLabel": "Emergency · {number}"
+  },
+  "sticky": {
+    "openStatus": "OPD open · {n} doctors taking appointments today",
+    "closedStatus": "OPD closed · Emergency line is always open"
+  },
+  "footer": {
+    "copyright": "© {year} Dev Nandini Hospital · NABH · NMC · NABL · ISO 15189",
+    "address": "Hapur · Uttar Pradesh · India · +91 80 4422 0099",
+    "sitemap": {
+      "patients": "Patients",
+      "physicians": "Referring physicians",
+      "students": "Students",
+      "donors": "Giving"
+    }
+  },
+  "accreditations": {
+    "nabh": "NABH ACCREDITED",
+    "nabl": "NABL CERTIFIED LAB",
+    "nmc": "NMC RECOGNIZED",
+    "iso15189": "ISO 15189"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "1958 → today",
+      "title": "Care that has watched the town grow up.",
+      "sub": "Sixty-eight years on, Dev Nandini is still where Hapur comes when it matters — a 540-bed multi-specialty hospital with named consultants, published outcomes, and the steady hand that makes both possible.",
+      "photoCaption": "EXTERIOR · WEST WING · 06:42",
+      "photoOverlay": "The first case of the day, before the lights come up."
+    },
+    "actionStrip": {
+      "kicker": "WHAT BRINGS YOU HERE",
+      "tiles": {
+        "book": {
+          "title": "Book an appointment",
+          "sub": "Three clicks, no account needed."
+        },
+        "findDoctor": {
+          "title": "Find a doctor",
+          "sub": "184 consultants across 28 specialties."
+        },
+        "labs": {
+          "title": "Lab reports",
+          "sub": "Opening in a new window soon."
+        },
+        "billing": {
+          "title": "Pay your bill",
+          "sub": "Opening in a new window soon."
+        }
+      }
+    },
+    "findInline": {
+      "kicker": "FIND A DOCTOR",
+      "title": "Search by name, specialty, or condition.",
+      "placeholder": "e.g. cardiology, Dr. Kapoor, chest pain",
+      "submit": "Search"
+    },
+    "marquee": {
+      "label": "Accreditations and facts"
+    },
+    "featuredStory": {
+      "kicker": "FROM THE DECEMBER BULLETIN",
+      "title": "How a teaching hospital learns to slow down.",
+      "dek": "Dr. Anjali Kapoor has been Head of Cardiology since 2014. She still does morning rounds at 06:40, two registrars trailing behind her, and still pauses at every bed long enough to be told off by the ICU charge nurse. We followed her for 38 hours.",
+      "byline": "By Rohan Khurana · Photography by Meher Sodhi · 14 min read",
+      "cta": "Continue reading",
+      "photoCaption": "MORNING ROUND · CARDIOLOGY · 06:40"
+    },
+    "photoStrip": {
+      "kicker": "THE PLACE",
+      "captions": {
+        "courtyard": "EXTERIOR · CLOISTER · MARCH",
+        "cathLab": "CATH-LAB TWO · BEFORE FIRST CASE",
+        "nicu": "NICU CORRIDOR · DAWN"
+      }
+    },
+    "departments": {
+      "kicker": "DEPARTMENTS",
+      "title": "Twenty-eight specialties under one roof.",
+      "viewAll": "View all departments →"
+    },
+    "stats": {
+      "kicker": "BY THE NUMBERS",
+      "title": "What sixty-eight years adds up to."
+    },
+    "visit": {
+      "kicker": "PLAN YOUR VISIT",
+      "title": "What you need to know before you come.",
+      "items": {
+        "hours": {
+          "title": "Visiting hours",
+          "body": "OPD Mon–Sat, 08:00–20:00. Inpatient visiting: 11:00–13:00 and 17:00–19:00."
+        },
+        "insurance": {
+          "title": "Cashless insurance",
+          "body": "38 networks accepted including CGHS, ECHS, ESI, Star, Bajaj Allianz, HDFC ERGO."
+        },
+        "international": {
+          "title": "International patients",
+          "body": "Visa-letter assistance, airport pickup, dedicated coordinator."
+        },
+        "directions": {
+          "title": "How to reach",
+          "body": "NH-9, Hapur Bypass. Free shuttle from Hapur Junction."
+        }
+      },
+      "cta": "Plan your visit →",
+      "photoCaption": "RECEPTION · MAIN BUILDING · 09:12"
+    },
+    "college": {
+      "kicker": "MEDICAL COLLEGE",
+      "title": "Where the bedside is the syllabus.",
+      "body": "150 MBBS seats. 84 PG seats across 21 specialties. 1:8 faculty-to-student ratio. Teaching rounds, problem-based clinics, and a longitudinal ethics thread that runs from Year 1 to internship.",
+      "cta": "Apply for MBBS 2026 →",
+      "stats": {
+        "mbbs": "MBBS seats",
+        "pg": "PG seats",
+        "ratio": "Faculty:student",
+        "since": "Teaching since"
+      }
+    },
+    "news": {
+      "kicker": "NEWS & STORIES",
+      "title": "What's happening in the building.",
+      "viewAll": "All news →"
+    },
+    "quote": {
+      "text": "They didn't just put a stent in my husband. They sat with me at 3 a.m. and explained, twice, in the language I think in.",
+      "attribution": "Saroj Devi · Garhmukteshwar · cardiac patient's spouse · 2025",
+      "photoCaption": "FAMILY ROOM · CARDIAC ICU"
+    },
+    "locations": {
+      "kicker": "LOCATIONS",
+      "title": "Three buildings, one institution."
+    }
+  }
+}

@@ -1,0 +1,204 @@
+/* Dev Nandini Hospital — shared tokens & utilities */
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800&family=Tiro+Devanagari+Hindi:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  /* Teal / cyan modern clinical (default palette) */
+  --dnh-ink: #0E1F22;
+  --dnh-ink-soft: #2A4A50;
+  --dnh-deep: #0E3B45;
+  --dnh-primary: #107A8B;
+  --dnh-primary-2: #1A95A8;
+  --dnh-accent: #6EBDC9;
+  --dnh-accent-2: #BFE3E8;
+  --dnh-paper: #F4F1EA;
+  --dnh-paper-2: #ECE7DC;
+  --dnh-white: #FFFFFF;
+  --dnh-line: #1A3A41;
+  --dnh-line-soft: rgba(14, 31, 34, 0.10);
+  --dnh-emergency: #C03A2C;
+
+  --dnh-sans-en: 'Manrope', ui-sans-serif, sans-serif;
+  --dnh-serif-en: 'Newsreader', Georgia, serif;
+  --dnh-sans-hi: 'Noto Sans Devanagari', sans-serif;
+  --dnh-serif-hi: 'Tiro Devanagari Hindi', 'Noto Serif Devanagari', serif;
+  --dnh-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* density (overridden via root data attr) */
+  --dnh-pad-y: 88px;
+}
+
+[data-dnh-density="compact"] { --dnh-pad-y: 56px; }
+[data-dnh-density="regular"] { --dnh-pad-y: 88px; }
+[data-dnh-density="spacious"] { --dnh-pad-y: 128px; }
+
+/* Palette swaps */
+[data-dnh-palette="teal"] { --dnh-deep:#0E3B45; --dnh-primary:#107A8B; --dnh-primary-2:#1A95A8; --dnh-accent:#6EBDC9; --dnh-accent-2:#BFE3E8; }
+[data-dnh-palette="forest"] { --dnh-deep:#1F3A2C; --dnh-primary:#2E6B4F; --dnh-primary-2:#3F8862; --dnh-accent:#9DBFA8; --dnh-accent-2:#D5E2D9; }
+[data-dnh-palette="burgundy"]{ --dnh-deep:#3E1820; --dnh-primary:#7A2A33; --dnh-primary-2:#963540; --dnh-accent:#D6A4A9; --dnh-accent-2:#EAD4D7; }
+[data-dnh-palette="navy"]   { --dnh-deep:#0F1E3D; --dnh-primary:#1F3D7A; --dnh-primary-2:#2C53A0; --dnh-accent:#9DB1D5; --dnh-accent-2:#D8DEEC; }
+
+/* lang-aware type */
+[data-dnh-lang="en"] { --dnh-sans: var(--dnh-sans-en); --dnh-serif: var(--dnh-serif-en); }
+[data-dnh-lang="hi"] { --dnh-sans: var(--dnh-sans-hi); --dnh-serif: var(--dnh-serif-hi); }
+
+.dnh-root {
+  font-family: var(--dnh-sans);
+  color: var(--dnh-ink);
+  background: var(--dnh-paper);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  width: 100%;
+  position: relative;
+}
+
+.dnh-root *, .dnh-root *::before, .dnh-root *::after { box-sizing: border-box; }
+
+.dnh-serif { font-family: var(--dnh-serif); font-weight: 400; }
+.dnh-mono  { font-family: var(--dnh-mono); }
+
+/* Striped placeholder image with monospace label.
+   bg = paper, stripes = primary @ low opacity */
+.dnh-img {
+  position: relative;
+  overflow: hidden;
+  background:
+    repeating-linear-gradient(135deg,
+      rgba(14,31,34,0.06) 0 1px,
+      transparent 1px 9px),
+    var(--dnh-accent-2);
+  display: flex;
+  align-items: flex-end;
+  color: var(--dnh-deep);
+}
+.dnh-img.dark {
+  background:
+    repeating-linear-gradient(135deg,
+      rgba(255,255,255,0.06) 0 1px,
+      transparent 1px 9px),
+    var(--dnh-deep);
+  color: var(--dnh-accent-2);
+}
+.dnh-img > .dnh-img-label {
+  font-family: var(--dnh-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 10px 12px;
+  background: rgba(0,0,0,0.04);
+  width: 100%;
+  border-top: 0.5px solid rgba(14,31,34,0.12);
+}
+.dnh-img.dark > .dnh-img-label {
+  background: rgba(255,255,255,0.06);
+  border-top-color: rgba(255,255,255,0.12);
+}
+
+/* Buttons */
+.dnh-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font: 500 14px/1 var(--dnh-sans);
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background .15s, color .15s, border-color .15s, transform .15s;
+  white-space: nowrap;
+}
+.dnh-btn--primary { background: var(--dnh-deep); color: #fff; }
+.dnh-btn--primary:hover { background: var(--dnh-primary); }
+.dnh-btn--ghost { background: transparent; color: var(--dnh-ink); border-color: rgba(14,31,34,0.18); }
+.dnh-btn--ghost:hover { border-color: var(--dnh-deep); }
+.dnh-btn--accent { background: var(--dnh-accent); color: var(--dnh-deep); }
+.dnh-btn--accent:hover { background: var(--dnh-accent-2); }
+.dnh-btn--emerg { background: var(--dnh-emergency); color: #fff; }
+.dnh-btn--emerg:hover { filter: brightness(1.08); }
+.dnh-btn--sq { border-radius: 6px; }
+
+/* Hairlines */
+.dnh-hr { height: 1px; background: var(--dnh-line-soft); border: 0; margin: 0; }
+
+/* Tag */
+.dnh-tag {
+  display: inline-flex; gap: 6px; align-items: center;
+  padding: 5px 10px; border-radius: 999px;
+  font: 500 11px/1.2 var(--dnh-sans);
+  text-transform: uppercase; letter-spacing: 0.10em;
+  background: var(--dnh-accent-2); color: var(--dnh-deep);
+}
+
+/* DNH logomark – simple lotus-like geometry, no SVG illustration */
+.dnh-logomark {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px;
+  background: var(--dnh-deep); color: #fff;
+  border-radius: 50%;
+  font: 600 14px/1 var(--dnh-sans-en);
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+.dnh-logomark::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.4);
+}
+.dnh-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+}
+.dnh-logo-mark {
+  position: relative;
+  width: 36px; height: 36px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--dnh-deep);
+  color: #fff;
+  border-radius: 50%;
+  font-family: var(--dnh-serif-en);
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 1;
+  letter-spacing: 0;
+  flex-shrink: 0;
+}
+.dnh-logo-mark::after {
+  content: "";
+  position: absolute; inset: 3px;
+  border-radius: 50%;
+  border: 0.5px solid rgba(255,255,255,0.45);
+}
+.dnh-logo-text { display: flex; flex-direction: column; line-height: 1.05; }
+.dnh-logo-text > .l1 { font: 600 15px/1.1 var(--dnh-sans); letter-spacing: 0.005em; }
+.dnh-logo-text > .l2 { font: 400 10.5px/1.1 var(--dnh-sans); opacity: 0.65; letter-spacing: 0.06em; text-transform: uppercase; }
+[data-dnh-lang="hi"] .dnh-logo-text > .l1 { font-family: var(--dnh-sans-hi); font-weight: 600; letter-spacing: 0; font-size: 15.5px; }
+[data-dnh-lang="hi"] .dnh-logo-text > .l2 { font-family: var(--dnh-sans-hi); font-weight: 400; text-transform: none; letter-spacing: 0; }
+
+/* artboard root width */
+.dnh-screen { width: 1280px; }
+
+/* Light-cell underline links */
+.dnh-link {
+  color: var(--dnh-deep);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+}
+.dnh-link:hover { color: var(--dnh-primary); }
+
+/* Marquee strip */
+@keyframes dnh-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.dnh-marquee-track {
+  display: flex; gap: 48px;
+  animation: dnh-marquee 60s linear infinite;
+  width: max-content;
+}
