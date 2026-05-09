@@ -1,6 +1,7 @@
-// Maps a department slug to a contextual hero image.
-// Source files live in public/images/contextual/ — see ATTRIBUTIONS.md for
-// licensing (all CC0 / CC-BY / CC-BY-SA / Public Domain Wikimedia Commons).
+// Maps a department slug to a hero image.
+// Source files live in public/images/hospital/ — photographed at Dev Nandini
+// Hospital, Hapur (DNH-owned, sourced from dnhhapur.com). See
+// public/images/hospital/ATTRIBUTIONS.md.
 // Most specialties share a pool image keyed by procedural family; specialties
 // with bespoke imagery override.
 
@@ -8,27 +9,33 @@ export type DeptImage = { src: string; alt: string };
 
 const POOL = {
   cardiology: {
-    src: "/images/contextual/dept-cardiology.jpg",
-    alt: "Echocardiography ultrasound of the heart",
+    src: "/images/hospital/laparoscopy.jpg",
+    alt: "Interventional procedure in the operating theatre",
   },
   surgery: {
-    src: "/images/contextual/pool-surgery.jpg",
-    alt: "Surgical team in an operating theatre",
+    src: "/images/hospital/surgery-team.jpg",
+    alt: "Surgical team in the operating theatre",
   },
   pediatrics: {
-    src: "/images/contextual/pool-pediatrics.jpg",
-    alt: "Clinician with a young pediatric patient",
+    src: "/images/hospital/nicu-warmers.jpg",
+    alt: "Neonatal intensive care unit baby warmers",
   },
-  women: { src: "/images/contextual/pool-women.jpg", alt: "Hospital maternity ward" },
+  women: {
+    src: "/images/hospital/nicu-team.jpg",
+    alt: "Neonatal nursing team in the NICU",
+  },
   imaging: {
-    src: "/images/contextual/pool-imaging.jpg",
-    alt: "MRI scanner in a hospital radiology department",
+    src: "/images/hospital/ct-scanner.jpg",
+    alt: "CT scanner in the radiology department",
   },
   eye: {
-    src: "/images/contextual/pool-eye.jpg",
+    src: "/images/hospital/eye-exam.jpg",
     alt: "Slit-lamp eye examination by an ophthalmologist",
   },
-  corridor: { src: "/images/contextual/pool-corridor.jpg", alt: "Hospital corridor interior" },
+  clinical: {
+    src: "/images/hospital/pathology-lab.jpg",
+    alt: "Pathology laboratory bench",
+  },
 } as const satisfies Record<string, DeptImage>;
 
 const overrides: Record<string, DeptImage> = {
@@ -67,7 +74,7 @@ const overrides: Record<string, DeptImage> = {
   ophthalmology: POOL.eye,
 };
 
-const DEFAULT: DeptImage = POOL.corridor;
+const DEFAULT: DeptImage = POOL.clinical;
 
 export function getDepartmentImage(slug: string): DeptImage {
   return overrides[slug] ?? DEFAULT;
