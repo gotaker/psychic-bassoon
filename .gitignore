@@ -63,3 +63,6 @@ Thumbs.db
 
 # npm pack output (used as the Docker build context)
 *.tgz
+
+# Playwright
+/blob-report/
