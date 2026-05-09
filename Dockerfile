@@ -7,21 +7,22 @@
 FROM node:26-alpine AS deps
 WORKDIR /app
 
-# Enable pnpm via corepack (matches package.json packageManager pin).
-RUN corepack enable && corepack prepare pnpm@11.0.9 --activate
+# Install pnpm directly. corepack was removed from Node's default distribution
+# starting in v25; matches the packageManager pin in package.json.
+RUN npm install -g pnpm@11.0.9
 
 # Railway's Metal builder validates cache-mount ids statically and requires
 # the literal "s/<service-id>-" prefix (no variable expansion). The id below
 # matches the psychic-bassoon service in workspace gotaker's Projects; if the
 # service is recreated, update the UUID. Local Docker ignores the prefix.
-COPY package.json pnpm-lock.yaml ./
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 RUN --mount=type=cache,id=s/b8dfb466-bf66-40f5-9a09-ec7bee016855-pnpm,target=/root/.local/share/pnpm/store \
     pnpm install --frozen-lockfile
 
 # ---- builder ----
 FROM node:26-alpine AS builder
 WORKDIR /app
-RUN corepack enable && corepack prepare pnpm@11.0.9 --activate
+RUN npm install -g pnpm@11.0.9
 
 ENV NEXT_TELEMETRY_DISABLED=1
 

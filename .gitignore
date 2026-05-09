@@ -60,3 +60,6 @@ Thumbs.db
 .cache/
 .turbo/
 *.pem
+
+# npm pack output (used as the Docker build context)
+*.tgz

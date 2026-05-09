@@ -1,0 +1,67 @@
+# Mirrors .dockerignore — the npm-pack tarball is the Docker build context,
+# so what's excluded here must match what Docker would skip via COPY . .
+#
+# pnpm-lock.yaml and package.json must remain in the tarball: the Dockerfile's
+# deps stage runs `pnpm install --frozen-lockfile` against them.
+
+# VCS / repo meta
+.git
+.github
+.gitignore
+.gitattributes
+
+# Dependencies / build output
+node_modules
+.next
+out
+build
+dist
+.vercel
+.cache
+.turbo
+
+# Dev-only directories
+prototype
+.claude
+.agents
+tests
+vitest.config.ts
+
+# Markdown — keep only the three docs the Dockerfile keeps
+*.md
+!CLAUDE.md
+!PRODUCT.md
+!DESIGN.md
+
+# Env / secrets
+.env
+.env*.local
+
+# Editor / OS cruft
+.idea
+.vscode
+.DS_Store
+Thumbs.db
+
+# Test / coverage artifacts
+coverage
+.nyc_output
+playwright-report
+test-results
+playwright/.cache
+
+# Logs / TS incremental
+*.log
+*.tsbuildinfo
+
+# Next.js auto-regenerates this on build
+next-env.d.ts
+
+# Docker meta — not needed inside the tarball
+Dockerfile
+.dockerignore
+
+# Format-only config — Prettier doesn't run during `next build`
+.prettierrc
+.prettierignore
+# (eslint.config.mjs is intentionally kept — `next build` runs lint by default)
