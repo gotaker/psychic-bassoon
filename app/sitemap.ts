@@ -18,6 +18,7 @@ const STATIC_PATHS = [
   "/lab-reports",
   "/pay-bill",
   "/annual-report",
+  "/blood-bank",
 ];
 
 function entryFor(path: string): MetadataRoute.Sitemap[number] {
