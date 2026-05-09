@@ -14,7 +14,6 @@ import { StatsBand } from "@/components/home/StatsBand";
 import { VisitPanel } from "@/components/home/VisitPanel";
 import { TrainingCentreSplit } from "@/components/home/TrainingCentreSplit";
 import { NewsGrid } from "@/components/home/NewsGrid";
-import { Quote } from "@/components/home/Quote";
 import { LocationsBand } from "@/components/home/LocationsBand";
 import type { Locale } from "@/lib/locales";
 
@@ -67,10 +66,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale: L
         <AccreditationsMarquee />
         <VisitPanel locale={locale} />
         <PhotoStrip />
-        <StatsBand locale={locale} />
         <TrainingCentreSplit />
         <NewsGrid locale={locale} />
-        <Quote />
+        <StatsBand locale={locale} />
         <LocationsBand locale={locale} />
       </main>
       <SiteFooter />
