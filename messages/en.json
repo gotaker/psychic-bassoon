@@ -1,4 +1,25 @@
 {
+  "bloodBank": {
+    "sectionAccreditations": "Accreditations",
+    "sectionServices": "What we do",
+    "sectionDonate": "Donate blood",
+    "sectionRequest": "Need blood for a patient",
+    "sectionFaq": "Frequently asked questions",
+    "sectionContact": "Visit & contact",
+    "ctaDonate": "Donate blood",
+    "ctaRequest": "Need blood for a patient",
+    "ctaCallDonor": "Call the blood bank",
+    "ctaCallRequest": "Call the blood bank",
+    "eligibilityHeading": "Eligibility",
+    "processHeading": "What to expect",
+    "walkInHeading": "Walk-in hours",
+    "policyHeading": "How to arrange blood at DNH",
+    "whatToBringHeading": "What to bring",
+    "hoursHeading": "Hours",
+    "departmentStubCta": "Visit our Blood Bank",
+    "metaTitle": "Blood Bank — Dev Nandini Hospital",
+    "metaDescription": "Donate blood, or arrange blood for an admitted patient at Dev Nandini Hospital — NABH-accredited, on the ground floor in Hapur."
+  },
   "brand": {
     "name": "Dev Nandini Hospital",
     "tagline": "Hospital · Medical College · Research",
@@ -10,7 +31,8 @@
     "departments": "Departments",
     "visit": "Visit",
     "about": "About",
-    "news": "News"
+    "news": "News",
+    "bloodBank": "Blood Bank"
   },
   "cta": {
     "book": "Book appointment",
@@ -40,6 +62,7 @@
     "copyright": "© {year} Dev Nandini Hospital · NABH · NMC · NABL · ISO 15189",
     "address": "Hapur · Uttar Pradesh · India · +91 80 4422 0099",
     "imageCredits": "Image credits",
+    "bloodBankLink": "Blood Bank",
     "sitemap": {
       "patients": "Patients",
       "physicians": "Referring physicians",

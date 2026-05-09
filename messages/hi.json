@@ -1,4 +1,25 @@
 {
+  "bloodBank": {
+    "sectionAccreditations": "मान्यताएँ",
+    "sectionServices": "हम क्या करते हैं",
+    "sectionDonate": "रक्तदान करें",
+    "sectionRequest": "रोगी के लिए रक्त चाहिए",
+    "sectionFaq": "अक्सर पूछे जाने वाले प्रश्न",
+    "sectionContact": "मुलाक़ात एवं संपर्क",
+    "ctaDonate": "रक्तदान करें",
+    "ctaRequest": "रोगी के लिए रक्त चाहिए",
+    "ctaCallDonor": "रक्त बैंक को कॉल करें",
+    "ctaCallRequest": "रक्त बैंक को कॉल करें",
+    "eligibilityHeading": "पात्रता",
+    "processHeading": "क्या अपेक्षा रखें",
+    "walkInHeading": "वॉक-इन घंटे",
+    "policyHeading": "डीएनएच में रक्त की व्यवस्था कैसे करें",
+    "whatToBringHeading": "क्या साथ लाएँ",
+    "hoursHeading": "घंटे",
+    "departmentStubCta": "हमारा रक्त बैंक देखें",
+    "metaTitle": "रक्त बैंक — देव नंदिनी अस्पताल",
+    "metaDescription": "देव नंदिनी अस्पताल में रक्तदान करें, या भर्ती रोगी के लिए रक्त की व्यवस्था करें — एनएबीएच-मान्यता प्राप्त, हापुड़ में भूतल पर।"
+  },
   "brand": {
     "name": "देव नंदिनी अस्पताल",
     "tagline": "अस्पताल · मेडिकल कॉलेज · अनुसंधान",
@@ -10,7 +31,8 @@
     "departments": "विभाग",
     "visit": "मुलाक़ात",
     "about": "हमारे बारे में",
-    "news": "समाचार"
+    "news": "समाचार",
+    "bloodBank": "रक्त बैंक"
   },
   "cta": {
     "book": "अपॉइंटमेंट लें",
@@ -40,6 +62,7 @@
     "copyright": "© {year} देव नंदिनी अस्पताल · NABH · NMC · NABL · ISO 15189",
     "address": "हापुड़ · उत्तर प्रदेश · भारत · +91 80 4422 0099",
     "imageCredits": "छवि श्रेय",
+    "bloodBankLink": "रक्त बैंक",
     "sitemap": {
       "patients": "मरीज़",
       "physicians": "रेफ़र करने वाले चिकित्सक",
