@@ -18,7 +18,7 @@ const ratioStyles: Record<Ratio, string> = {
 };
 
 // 1fr/1fr or 1.15fr/1fr or 1.4fr/1fr split with 64px gap.
-// Used by Hero, FeaturedStory, VisitPanel, TrainingCentreSplit, DepartmentHero. DESIGN.md §9.2.
+// Used by Hero, VisitPanel, TrainingCentreSplit, DepartmentHero. DESIGN.md §9.2.
 export function EditorialSplit({
   ratio = "1-1",
   left,

@@ -9,9 +9,7 @@ import { Hero } from "@/components/home/Hero";
 import { ActionStrip } from "@/components/home/ActionStrip";
 import { InlineFindDoctor } from "@/components/home/InlineFindDoctor";
 import { AccreditationsMarquee } from "@/components/home/AccreditationsMarquee";
-import { FeaturedStory } from "@/components/home/FeaturedStory";
 import { PhotoStrip } from "@/components/home/PhotoStrip";
-import { DepartmentsGrid } from "@/components/home/DepartmentsGrid";
 import { StatsBand } from "@/components/home/StatsBand";
 import { VisitPanel } from "@/components/home/VisitPanel";
 import { TrainingCentreSplit } from "@/components/home/TrainingCentreSplit";
@@ -67,11 +65,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale: L
         <ActionStrip locale={locale} />
         <InlineFindDoctor locale={locale} />
         <AccreditationsMarquee />
-        <FeaturedStory locale={locale} />
-        <PhotoStrip />
-        <DepartmentsGrid locale={locale} />
-        <StatsBand locale={locale} />
         <VisitPanel locale={locale} />
+        <PhotoStrip />
+        <StatsBand locale={locale} />
         <TrainingCentreSplit />
         <NewsGrid locale={locale} />
         <Quote />

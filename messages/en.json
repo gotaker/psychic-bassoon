@@ -91,14 +91,6 @@
     "marquee": {
       "label": "Accreditations and facts"
     },
-    "featuredStory": {
-      "kicker": "FROM THE DECEMBER BULLETIN",
-      "title": "How a teaching hospital learns to slow down.",
-      "dek": "Dr. Anjali Kapoor has been Head of Cardiology since 2014. She still does morning rounds at 06:40, two registrars trailing behind her, and still pauses at every bed long enough to be told off by the ICU charge nurse. We followed her for 38 hours.",
-      "byline": "By Rohan Khurana · Photography by Meher Sodhi · 14 min read",
-      "cta": "Continue reading",
-      "photoCaption": "MORNING ROUND · CARDIOLOGY · 06:40"
-    },
     "photoStrip": {
       "kicker": "THE PLACE",
       "captions": {
@@ -147,9 +139,21 @@
       "cta": "Enquire — devnandiniivf@gmail.com",
       "ctaHref": "mailto:devnandiniivf@gmail.com",
       "courses": {
-        "basic": { "value": "07", "label": "Basic infertility training", "unit": "days" },
-        "advanced": { "value": "14", "label": "Advanced infertility training", "unit": "days" },
-        "iui": { "value": "02", "label": "IUI & stimulation protocol", "unit": "days" }
+        "basic": {
+          "value": "07",
+          "label": "Basic infertility training",
+          "unit": "days"
+        },
+        "advanced": {
+          "value": "14",
+          "label": "Advanced infertility training",
+          "unit": "days"
+        },
+        "iui": {
+          "value": "02",
+          "label": "IUI & stimulation protocol",
+          "unit": "days"
+        }
       }
     },
     "news": {
