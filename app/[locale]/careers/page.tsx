@@ -16,12 +16,12 @@ export default async function CareersPage({ params }: { params: Promise<{ locale
         kicker={{ en: "CAREERS", hi: "करियर" }}
         headline={{
           en: "Work where the bedside is the syllabus.",
-          hi: "जहाँ रोगी का बिस्तर ही पाठ्यक्रम है, वहीं काम करें।"
+          hi: "जहाँ रोगी का बिस्तर ही पाठ्यक्रम है, वहीं काम करें।",
         }}
         body={{
           en: (
             <p>
-              We're hiring across nursing, allied-health, and consultancy roles. Send a CV to{" "}
+              We&apos;re hiring across nursing, allied-health, and consultancy roles. Send a CV to{" "}
               <a className="underline underline-offset-4" href="mailto:careers@dnh.in">
                 careers@dnh.in
               </a>{" "}

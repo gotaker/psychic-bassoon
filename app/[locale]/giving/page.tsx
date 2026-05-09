@@ -21,8 +21,8 @@ export default async function GivingPage({ params }: { params: Promise<{ locale:
         body={{
           en: (
             <p>
-              80G-eligible donations support our charity-care fund, the cardiac wing's cath-lab,
-              and the medical college's scholarship programme. Email{" "}
+              80G-eligible donations support our charity-care fund, the cardiac wing&apos;s
+              cath-lab, and the medical college&apos;s scholarship programme. Email{" "}
               <a className="underline underline-offset-4" href="mailto:trust@dnh.in">
                 trust@dnh.in
               </a>{" "}
