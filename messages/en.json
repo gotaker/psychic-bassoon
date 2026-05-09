@@ -117,9 +117,9 @@
     "photoStrip": {
       "kicker": "THE PLACE",
       "captions": {
-        "courtyard": "EXTERIOR · CLOISTER · MARCH",
-        "cathLab": "CATH-LAB TWO · BEFORE FIRST CASE",
-        "nicu": "NICU CORRIDOR · DAWN"
+        "opd": "OPD · NURSING STATION · 09:12",
+        "ot": "OT · LAPAROSCOPIC SUITE · 14:20",
+        "nicu": "NICU · INCUBATORS · 06:30"
       }
     },
     "departments": {

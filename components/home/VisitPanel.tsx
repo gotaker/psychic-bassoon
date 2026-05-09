@@ -21,8 +21,8 @@ export function VisitPanel({ locale }: { locale: Locale }) {
               ratio="hero"
               radius="sm"
               image={{
-                src: "/images/contextual/home-visit.jpg",
-                alt: "Hospital reception and information desk",
+                src: "/images/hospital/reception.jpg",
+                alt: "Test Tube Baby Centre reception and waiting area",
               }}
             />
           }

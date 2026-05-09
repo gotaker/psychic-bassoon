@@ -12,31 +12,31 @@ export function PhotoStrip() {
           <figure>
             <PhotoPlaceholder
               tone="sand"
-              caption={t("captions.courtyard")}
+              caption={t("captions.opd")}
               ratio="wide"
               radius="sm"
               image={{
-                src: "/images/contextual/home-courtyard.jpg",
-                alt: "Hospital outpatient building exterior",
+                src: "/images/hospital/opd-station.jpg",
+                alt: "OPD nursing station with the care team on duty",
               }}
             />
             <figcaption className="body-sm mt-2 text-[color:var(--color-ink-soft)]">
-              {t("captions.courtyard")}
+              {t("captions.opd")}
             </figcaption>
           </figure>
           <figure>
             <PhotoPlaceholder
               tone="sage"
-              caption={t("captions.cathLab")}
+              caption={t("captions.ot")}
               ratio="square"
               radius="sm"
               image={{
-                src: "/images/contextual/home-cath-lab.jpg",
-                alt: "Cardiac catheterization procedure",
+                src: "/images/hospital/laparoscopy.jpg",
+                alt: "Laparoscopic surgery in the operating theatre",
               }}
             />
             <figcaption className="body-sm mt-2 text-[color:var(--color-ink-soft)]">
-              {t("captions.cathLab")}
+              {t("captions.ot")}
             </figcaption>
           </figure>
           <figure>
@@ -46,8 +46,8 @@ export function PhotoStrip() {
               ratio="square"
               radius="sm"
               image={{
-                src: "/images/contextual/home-nicu.jpg",
-                alt: "Neonatal intensive care unit incubator",
+                src: "/images/hospital/nicu.jpg",
+                alt: "NICU incubator and monitoring equipment",
               }}
             />
             <figcaption className="body-sm mt-2 text-[color:var(--color-ink-soft)]">

@@ -21,8 +21,9 @@ type PhotoPlaceholderProps = {
   className?: string;
   // When provided, renders a real photo on top of the gradient (which becomes
   // a backdrop while the image decodes). The gradient/caption styling stays
-  // identical so the layout is stable. Source files are CC-licensed Wikimedia
-  // Commons content under public/images/contextual/ — see ATTRIBUTIONS.md.
+  // identical so the layout is stable. Source files live under
+  // public/images/hospital/ — DNH-owned photography. See
+  // public/images/hospital/ATTRIBUTIONS.md.
   image?: { src: string; alt: string; priority?: boolean; objectPosition?: string };
 };
 
@@ -41,8 +42,8 @@ const radiusClasses = {
 
 // Photographic surface placeholder (DESIGN.md §4.2). When `image` is omitted,
 // renders the approved gradient + caption (the original placeholder); when
-// provided, the gradient acts as a tinted backdrop while a real CC-licensed
-// photo loads on top.
+// provided, the gradient acts as a tinted backdrop while the DNH photograph
+// loads on top.
 export function PhotoPlaceholder({
   tone,
   caption,
