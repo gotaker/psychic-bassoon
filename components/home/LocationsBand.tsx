@@ -28,19 +28,20 @@ export function LocationsBand({ locale }: { locale: Locale }) {
         <Mono>{t("kicker")}</Mono>
         <h2 className="display-md mt-3 max-w-[20ch]">{t("title")}</h2>
 
-        <div className="relative mt-10 aspect-[16/9] w-full overflow-hidden rounded-[var(--radius-md)] border border-[color:var(--color-line-soft)] bg-[color:var(--color-paper-2)]">
-          <iframe
-            src={mapsEmbedUrl(mainLocation, locale)}
-            title={`${mainLocation.name[locale]} — ${
-              locale === "hi" ? "मानचित्र" : "map"
-            }`}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="absolute inset-0 h-full w-full border-0"
-          />
-        </div>
-
-        <ul className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-3">
+        <ul className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <li className="flex flex-col">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[var(--radius-md)] border border-[color:var(--color-line-soft)] bg-[color:var(--color-paper-2)] lg:aspect-auto lg:flex-1">
+              <iframe
+                src={mapsEmbedUrl(mainLocation, locale)}
+                title={`${mainLocation.name[locale]} — ${
+                  locale === "hi" ? "मानचित्र" : "map"
+                }`}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="absolute inset-0 h-full w-full border-0"
+              />
+            </div>
+          </li>
           {locations.map((loc) => (
             <li key={loc.id} className="flex flex-col">
               <h3
