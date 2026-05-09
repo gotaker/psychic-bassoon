@@ -233,8 +233,11 @@
     "applicationForm": {
       "kicker": "FOGSI · APPLICATION FORM",
       "title": "FOGSI training application form.",
-      "lede": "The standard FOGSI form, page-perfect for printing. Print it, fill it in, attach the Demand Draft, and post the packet to the FOGSI office.",
+      "lede": "The standard FOGSI form. Fill it in below, then print a signed copy to post with your Demand Draft, or send a copy by email for our records.",
       "printCta": "Print this form",
+      "mailCta": "Email a copy",
+      "resetCta": "Clear form",
+      "postNote": "A signed printed copy with the Demand Draft must still be posted to the FOGSI office.",
       "backCta": "← Back to apply"
     }
   }
