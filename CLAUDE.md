@@ -23,21 +23,28 @@ Read those next. This file is about *how to work*; those are about *what to make
 
 | Layer | Choice |
 |---|---|
-| Framework | Next.js 15, App Router |
+| Framework | Next.js 16 (App Router), Node 26.1.x |
 | Language | TypeScript, `strict: true`. **No `any`.** |
 | UI runtime | React 19, RSC by default; opt into client components only when needed |
 | Styling | Tailwind CSS 4 (CSS-first, `@theme` block in `app/globals.css`). No CSS-in-JS. |
-| Primitives | shadcn/ui, restyled to match `DESIGN.md` tokens |
+| Primitives | Bespoke `components/ui/` (Button, Field, Mono, Marquee, etc.) styled with `DESIGN.md` tokens. **Not shadcn.** |
 | i18n | `next-intl` with locale-segment routing (`/en/...`, `/hi/...`) |
-| Fonts | `next/font/local` — self-hosted. No Google Fonts CDN at runtime. |
+| Fonts | `next/font/local` — self-hosted (see `lib/fonts.ts`). No Google Fonts CDN at runtime. |
 | Forms | `react-hook-form` + `zod` resolvers |
 | Server mutations | Server Actions only. No client-side `fetch` to internal routes. |
-| Images | `next/image` exclusively. `sharp` for processing. |
+| Images | `next/image` exclusively. Remote-host allowlist in `next.config.ts` (mirrored in `lib/news/google-news.ts` — keep both in sync). |
 | Lint / format | ESLint flat config + Prettier with the Tailwind plugin |
-| Package manager | `pnpm` |
-| Deploy | Vercel |
+| Package manager | `pnpm` 11 |
+| Deploy | Railway, from the repo `Dockerfile` (Next standalone output) |
 
 Do not introduce new top-level dependencies without justifying the trade-off in your PR description.
+
+### Build & deploy quirks
+
+- `next.config.ts` sets `output: "standalone"`. The Dockerfile copies only `.next/standalone`, `.next/static`, and `public/`. Don't remove standalone output without updating the Dockerfile.
+- `typedRoutes: false` is intentional — it conflicts with locale-prefixed hrefs until we migrate to `next-intl/navigation`. Don't "fix" it.
+- The Dockerfile's pnpm-store cache mount hard-codes a Railway service UUID (`s/<uuid>-pnpm`). If the Railway service is recreated, update that UUID; local Docker ignores it.
+- Image `remotePatterns` in `next.config.ts` and the `IMAGE_HOST_ALLOWLIST` in `lib/news/google-news.ts` must move together.
 
 ---
 
@@ -49,7 +56,8 @@ pnpm dev          # localhost:3000
 pnpm build        # must pass with zero errors before any PR
 pnpm lint         # eslint + prettier
 pnpm typecheck    # tsc --noEmit
-pnpm test         # vitest (unit) + playwright (e2e) when configured
+pnpm test         # vitest unit tests
+pnpm e2e          # playwright e2e tests (also: pnpm e2e:ui for the runner)
 ```
 
 Before opening any PR: `pnpm typecheck && pnpm lint && pnpm build` must all pass locally.
@@ -60,48 +68,72 @@ Before opening any PR: `pnpm typecheck && pnpm lint && pnpm build` must all pass
 
 ```
 app/
-  [locale]/                    # 'en' | 'hi'
-    (marketing)/
-      page.tsx                 # /
-      visit/page.tsx
-      about/page.tsx
-      news/page.tsx
-      locations/page.tsx
-    find-a-doctor/page.tsx
-    departments/
+  (dev)/                       # dev-only routes, not shipped to prod
+  [locale]/                    # 'en' | 'hi' — pages live directly here, no (marketing) group
+    about/                     # story, leadership, accreditations
+    annual-report/
+    blood-bank/                # public donor + family lanes
+    book/                      # 3-step appointment flow
+      actions.ts               # server actions (submitBooking)
+      primitives/              # step-local UI building blocks
+      tokens/                  # booking-specific design tokens
+      layout.tsx
       page.tsx
-      [slug]/page.tsx
-    book/
-      page.tsx                 # 3-step booking + confirmation
-      actions.ts               # server actions
+    careers/                   # stub for v1
+    departments/               # index + [slug] detail
+    find-a-doctor/
+    giving/                    # stub for v1
+    lab-reports/               # link out to existing tool
+    locations/
+    news/
+    pay-bill/                  # link out to existing tool
+    training/
+    visit/                     # plan-your-visit
     layout.tsx                 # locale-scoped layout
+    page.tsx                   # home
   layout.tsx                   # root, applies <html lang>
   globals.css                  # @theme tokens, base layer
   sitemap.ts
   robots.ts
 components/
-  layout/                      # SiteHeader, SiteFooter, StickyCtaBar, LangToggle
-  ui/                          # Button, Mono, Eyebrow, SectionHeading, FilterPillGroup, PhotoPlaceholder, Marquee, Stepper
+  about/                       # VisionMission, etc.
+  blood-bank/                  # Hero, DonateLane, RequestLane, ServicesGrid, FAQ, Contact, AccreditationStrip
+  booking/                     # StepDepartment, StepDoctorTime, StepDetails, Confirmation, SummaryCard
+  department/                  # Hero, ProceduresGrid, OutcomesBand, WhenToCome
   doctor/                      # DoctorAvatar, DoctorCard, DoctorList
   home/                        # one component per homepage section (see DESIGN.md §6)
-  department/                  # Hero, ProceduresGrid, OutcomesBand, WhenToCome
-  booking/                     # StepDepartment, StepDoctorTime, StepDetails, Confirmation, SummaryCard
+  layout/                      # SiteHeader, SiteFooter, StickyCtaBar, LangToggle
+  news/
+  training/
+  ui/                          # Button, Field, Mono, SectionHeading, FilterPillGroup, PhotoPlaceholder, Marquee, Stepper
+  icons.tsx                    # shared icon set
 content/
+  types.ts                     # LocalisedString, Doctor, Department, etc.
   doctors.ts
   departments.ts
-  departments/cardiology.ts    # full detail; other slugs stub
+  departments/                 # per-slug detail (cardiology fullest; others stub)
+  blood-bank.ts
+  leadership.ts
+  locations.ts
   news.ts
   stats.ts
-  locations.ts
+  training.ts
 messages/
   en.json
-  hi.json
+  hi.json                      # structurally identical to en.json — CI fails if keys diverge
 lib/
-  i18n.ts                      # next-intl config + helpers
+  i18n.ts                      # next-intl request config (referenced from next.config.ts)
+  i18n-routing.ts              # locale prefixes, default, alternates
+  i18n-navigation.ts           # locale-aware Link/redirect/useRouter wrappers
+  locales.ts                   # supported locales constant
+  fonts.ts                     # next/font/local declarations (Source Serif, Inter Tight, Noto Devanagari, JetBrains Mono)
   formatters.ts                # number/date — Devanagari numerals in HI
+  departmentImagery.ts         # per-department photo mappings
+  structured-data.ts           # MedicalOrganization / Physician / MedicalProcedure JSON-LD builders
   cn.ts                        # tailwind-merge + clsx
+  news/                        # Google News RSS fetch + parse (see google-news.ts allowlist)
 public/
-  fonts/                       # self-hosted woff2
+  fonts/                       # self-hosted variable fonts (.ttf — woff2 conversion is an L10 task)
   images/
 prototype/                     # READ-ONLY reference — see "Reference prototype" below
 ```
