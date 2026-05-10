@@ -1,4 +1,13 @@
 {
+  "news": {
+    "eyebrow": "NEWS & STORIES",
+    "headline": "What's happening in the building.",
+    "featured": "Featured",
+    "latest": "Latest mentions",
+    "latestHelp": "Updated daily from public news sources",
+    "emptyLatest": "No new mentions found in the last six months. Check back soon.",
+    "readOn": "Read on {source}"
+  },
   "bloodBank": {
     "sectionAccreditations": "Accreditations",
     "sectionServices": "What we do",
